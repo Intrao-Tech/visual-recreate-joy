@@ -1,8 +1,10 @@
 import { Sparkle } from "lucide-react";
-
-const links = ["Home", "About", "Case Studies", "Pricing", "Contact"];
+import { useLang } from "@/i18n/LanguageContext";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Navbar = () => {
+  const { t } = useLang();
+  const links = [t.nav.home, t.nav.about, t.nav.cases, t.nav.pricing, t.nav.contact];
   return (
     <header className="absolute top-0 left-0 right-0 z-30 pt-6">
       <div className="container flex items-center justify-between rounded-full bg-background/40 backdrop-blur-md border border-white/10 px-6 py-3">
@@ -17,9 +19,12 @@ const Navbar = () => {
             </a>
           ))}
         </nav>
-        <a href="#contact" className="btn-light !py-3 !px-5 text-xs">
-          Get This Template
-        </a>
+        <div className="flex items-center gap-4">
+          <LanguageSwitcher tone="light" />
+          <a href="#contact" className="hidden sm:inline-flex btn-light !py-3 !px-5 text-xs">
+            {t.nav.cta}
+          </a>
+        </div>
       </div>
     </header>
   );

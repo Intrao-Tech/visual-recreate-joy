@@ -2,18 +2,18 @@ import { useEffect, useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
+import { useLang } from "@/i18n/LanguageContext";
 
-const slides = [
-  { eyebrow: "Growing business needs help", title: "Anyone, anywhere,\ncan start a business.", image: hero1 },
-  { eyebrow: "Your dream shouldn't stop", title: "Crafting futures of\nyour dream business.", image: hero2 },
-];
+const images = [hero1, hero2];
 
 const Hero = () => {
+  const { t } = useLang();
+  const slides = t.hero.slides;
   const [i, setI] = useState(0);
   useEffect(() => {
-    const t = setInterval(() => setI((p) => (p + 1) % slides.length), 6500);
-    return () => clearInterval(t);
-  }, []);
+    const tt = setInterval(() => setI((p) => (p + 1) % slides.length), 6500);
+    return () => clearInterval(tt);
+  }, [slides.length]);
 
   const next = () => setI((p) => (p + 1) % slides.length);
   const prev = () => setI((p) => (p - 1 + slides.length) % slides.length);
@@ -26,7 +26,7 @@ const Hero = () => {
           className={`absolute inset-0 transition-opacity duration-1000 ${idx === i ? "opacity-100" : "opacity-0"}`}
         >
           <img
-            src={s.image}
+            src={images[idx % images.length]}
             alt=""
             className="absolute inset-0 h-full w-full object-cover animate-slow-zoom"
             style={{ animationPlayState: idx === i ? "running" : "paused" }}
@@ -36,7 +36,7 @@ const Hero = () => {
       ))}
 
       <div className="relative z-10 container h-full flex flex-col justify-center pt-32">
-        <div key={i} className="max-w-3xl animate-fade-up">
+        <div key={`${i}-${slides[i].title}`} className="max-w-3xl animate-fade-up">
           <span className="pill-light">
             <span className="h-1.5 w-1.5 rounded-full bg-primary" />
             {slides[i].eyebrow}
@@ -45,7 +45,7 @@ const Hero = () => {
             {slides[i].title}
           </h1>
           <div className="mt-10">
-            <a href="#contact" className="btn-light">Get A Free Consultation →</a>
+            <a href="#contact" className="btn-light">{t.hero.cta}</a>
           </div>
         </div>
       </div>
