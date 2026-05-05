@@ -22,7 +22,7 @@ const Footer = () => {
           <div className="md:col-span-4">
             <a href="#" className="flex items-center gap-2">
               <Sparkle className="h-5 w-5 fill-primary stroke-primary" />
-              <span className="font-display text-3xl">Consult</span>
+              <span className="font-display text-3xl">ANGL Consulting</span>
             </a>
             <p className="mt-6 text-background/70 max-w-xs">{t.footer.desc}</p>
           </div>

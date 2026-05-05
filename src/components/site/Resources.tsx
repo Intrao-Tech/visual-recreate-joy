@@ -10,7 +10,7 @@ const imgs = [r1, r2, r3, r4];
 const Resources = () => {
   const { t } = useLang();
   return (
-    <section className="py-24 md:py-32 container">
+    <section className="py-8 md:py-12 container">
       <div className="max-w-3xl mb-14">
         <span className="pill">{t.resources.pill}</span>
         <h2 className="mt-6 text-5xl md:text-6xl leading-[1.05]">

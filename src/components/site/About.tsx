@@ -4,14 +4,17 @@ import { useLang } from "@/i18n/LanguageContext";
 const About = () => {
   const { t } = useLang();
   return (
-    <section className="py-24 md:py-32 container">
+    <section className="py-8 md:py-12 container">
       <div className="grid md:grid-cols-12 gap-10 items-end">
         <div className="md:col-span-8">
           <h2 className="text-4xl md:text-6xl leading-[1.1]">
             {t.about.headPre}{" "}
-            <span className="inline-flex items-center align-middle mx-2">
-              <img src={about} alt="" loading="lazy" className="h-14 md:h-20 w-28 md:w-40 object-cover rounded-full" />
-            </span>{" "}
+            <span className="relative inline-flex items-center justify-center align-baseline mx-2 px-8 md:px-12 rounded-full overflow-hidden">
+              <img src={about} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+              <span className="relative italic text-white drop-shadow-md whitespace-nowrap leading-[1.1]">
+                {t.about.headFigure}
+              </span>
+            </span>
             {t.about.headMid}{" "}
             <span className="italic text-primary">{t.about.headItalic}</span>{" "}
             {t.about.headPost}

@@ -8,7 +8,7 @@ const imgs = [step1, step2, step3];
 const Steps = () => {
   const { t } = useLang();
   return (
-    <section className="py-24 md:py-32 container">
+    <section className="py-8 md:py-12 container">
       <div className="max-w-3xl">
         <h2 className="text-5xl md:text-6xl leading-[1.05]">{t.steps.titleA}</h2>
         <h2 className="text-5xl md:text-6xl leading-[1.05] italic text-primary">{t.steps.titleB}</h2>

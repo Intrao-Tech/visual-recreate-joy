@@ -3,7 +3,7 @@ import { useLang } from "@/i18n/LanguageContext";
 const CTA = () => {
   const { t } = useLang();
   return (
-    <section className="py-24 container">
+    <section className="pt-8 pb-4 container">
       <div className="rounded-[2.5rem] bg-gradient-warm p-12 md:p-20 text-primary-foreground relative overflow-hidden">
         <div className="absolute -top-20 -right-20 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
         <div className="relative grid md:grid-cols-12 gap-10 items-center">

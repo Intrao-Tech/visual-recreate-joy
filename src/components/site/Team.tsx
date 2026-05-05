@@ -9,7 +9,7 @@ const imgs = [t1, t2, t3, t4];
 const Team = () => {
   const { t } = useLang();
   return (
-    <section className="py-24 md:py-32 container">
+    <section className="py-8 md:py-12 container">
       <div className="grid md:grid-cols-12 gap-8 items-end mb-14">
         <div className="md:col-span-7">
           <span className="pill">{t.team.pill}</span>

@@ -10,7 +10,7 @@ const Navbar = () => {
       <div className="container flex items-center justify-between rounded-full bg-background/40 backdrop-blur-md border border-white/10 px-6 py-3">
         <a href="#" className="flex items-center gap-2 text-background">
           <Sparkle className="h-5 w-5 fill-primary stroke-primary" />
-          <span className="font-display text-2xl">Consult</span>
+          <span className="font-display text-2xl">ANGL Consulting</span>
         </a>
         <nav className="hidden md:flex items-center gap-8">
           {links.map((l) => (

@@ -9,7 +9,7 @@ const imgs = [t1, t2, t3];
 const Testimonials = () => {
   const { t } = useLang();
   return (
-    <section className="py-24 md:py-32 bg-cream-soft">
+    <section className="py-8 md:py-12 bg-cream-soft">
       <div className="container">
         <div className="grid md:grid-cols-12 gap-8 items-end mb-14">
           <div className="md:col-span-8">
