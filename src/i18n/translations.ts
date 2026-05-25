@@ -27,6 +27,16 @@ export type Dict = {
     titleItalic: string;
     items: { title: string; copy: string }[];
   };
+  catalog: {
+    pill: string;
+    titlePre: string;
+    titleItalic: string;
+    categories: {
+      title: string;
+      note?: string;
+      items: { title: string; copy: string; price: string }[];
+    }[];
+  };
   cta: { pill: string; titlePre: string; titleItalic: string; button: string };
   team: {
     pill: string;
@@ -106,6 +116,71 @@ const en: Dict = {
       { title: "RRO/PRRO Setup", copy: "Register and configure cash register systems quickly." },
       { title: "Tax Audit Support", copy: "We stand by your side during inspections and tax reviews." },
       { title: "Licensing & Grants", copy: "Alcohol and tobacco licenses, grant applications, financial monitoring." },
+    ],
+  },
+  catalog: {
+    pill: "Full catalog",
+    titlePre: "Detailed services",
+    titleItalic: "and transparent pricing",
+    categories: [
+      {
+        title: "Expert consultations (one-time services)",
+        items: [
+          { title: "Individual consultation (1 hour)", copy: "A spoken review of your case: taxes, FOP, limits, risk check, optimization of activity.", price: "from 1 500 UAH / hour" },
+          { title: "Written expert opinion", copy: "Detailed analysis of the question with references to the Tax Code of Ukraine and a step-by-step action plan.", price: "from 2 500 UAH" },
+          { title: "Strategic session with the business owner", copy: "Deep audit of the current company model, search for financial leaks, optimization plan (2 hours).", price: "from 5 000 UAH" },
+        ],
+      },
+      {
+        title: "Financial management and managerial accounting",
+        items: [
+          { title: "Building a managerial accounting system", copy: "Implementation of the core business reports: Cash Flow, P&L, Balance sheet. Adapted to your company's specifics.", price: "from 15 000 UAH" },
+          { title: "Cost calculation development", copy: "A tool (template/database) for precise calculation of cost of goods/services and real margin definition.", price: "from 6 000 UAH" },
+          { title: "Audit of the company's financial state", copy: "Full analysis of the business 'health', detection of cash gaps, audit of receivables and payables.", price: "from 12 000 UAH" },
+        ],
+      },
+      {
+        title: "Tax consulting and business protection",
+        items: [
+          { title: "Tax structuring of the business", copy: "Selection of the most beneficial and safe tax model (FOP/LLC combinations), legal tax reduction.", price: "from 8 000 UAH" },
+          { title: "Tax audit support", copy: "Preparation for STS inspections, accompaniment during the process, drafting objections to acts.", price: "from 10 000 UAH" },
+          { title: "Unblocking VAT invoices", copy: "Analysis of blocking reasons, preparation of document package, VAT-payer data tables and complaints.", price: "from 5 000 UAH" },
+        ],
+      },
+      {
+        title: "Financial monitoring and banks",
+        items: [
+          { title: "Financial monitoring support (for banks)", copy: "Building a legal document package and well-grounded explanations for the bank regarding the origin of funds.", price: "from 3 500 UAH" },
+          { title: "Account unblocking consulting", copy: "Action plan in case of FOP or individual account blocking, communication with the bank's compliance department.", price: "from 4 000 UAH" },
+        ],
+      },
+      {
+        title: "Ready-made packages for small business",
+        note: "Prices are indicative. Final cost depends on the volume of operations, number of SKUs and company headcount. We work officially under contract (FOP group 3, without VAT).",
+        items: [
+          { title: "'Safe Start' package (for new entrepreneurs)", copy: "Consultation on KVED codes and tax system (FOP groups); step-by-step guidance: payments, accounts, limits, working with PRRO/RRO.", price: "from 3 000 UAH" },
+          { title: "'Outsourced CFO' package", copy: "Full monthly control of company finances; budgeting, plan-fact analysis, profitability control; weekly reporting meetings with the owner.", price: "from 20 000 UAH / month" },
+        ],
+      },
+      {
+        title: "Online training and staff upskilling",
+        note: "After the training — video recordings of every meeting and ready-to-use spreadsheet templates. Session timing is arranged individually.",
+        items: [
+          { title: "Online intensive for in-house accountant (1-on-1)", copy: "Practical Zoom sessions: requalification from classical to managerial accounting, report automation in Google Sheets, nuances of financial monitoring.", price: "from 6 000 UAH" },
+          { title: "Practical online workshop on Excel / Google Sheets", copy: "Training for the finance team: complex formulas, pivot tables and dashboards tailored to the business.", price: "from 5 000 UAH" },
+          { title: "Corporate online course for the team (managers / sales)", copy: "Financial literacy via Zoom: cost calculation, avoiding receivables, margin control.", price: "from 10 000 UAH" },
+          { title: "Development of digital instructions and regulations", copy: "Interactive maps and checklists for staff (receiving primary documents, processing payments, etc.).", price: "from 4 500 UAH" },
+        ],
+      },
+      {
+        title: "International collaboration and entering the German market (online)",
+        items: [
+          { title: "'Entering the German market' consulting", copy: "Analysis of business model readiness, basic requirements, choice of legal form (UG, GmbH, etc.).", price: "from 4 000 UAH (or equivalent in €)" },
+          { title: "Financial preparation for integration (DATEV / SAP / Excel)", copy: "Adaptation of reporting and primary documents to the requirements of German tax offices and automation systems.", price: "from 8 000 UAH" },
+          { title: "Calculation base development for European partners", copy: "Professional cost calculation and financial justification (Kalkulationsgrundlage) for German banks or investors.", price: "from 6 000 UAH" },
+          { title: "Compliance and communication support", copy: "Preparation of responses to German banks' inquiries regarding the origin of funds and legality of financial flows.", price: "from 4 500 UAH" },
+        ],
+      },
     ],
   },
   cta: { pill: "Why choose us", titlePre: "Experienced specialists, modern tools —", titleItalic: "an individual approach", button: "Get In Touch →" },
@@ -208,6 +283,71 @@ const uk: Dict = {
       { title: "Ліцензії та гранти", copy: "Ліцензії на алкоголь і тютюн, оформлення грантів, фінмоніторинг." },
     ],
   },
+  catalog: {
+    pill: "Повний каталог",
+    titlePre: "Детальні послуги",
+    titleItalic: "та прозорі ціни",
+    categories: [
+      {
+        title: "Експертні консультації (разові послуги)",
+        items: [
+          { title: "Індивідуальна консультація (1 година)", copy: "Усний розбір вашого кейсу: податки, ФОП, ліміти, перевірка ризиків, оптимізація діяльності.", price: "від 1 500 грн / год" },
+          { title: "Письмовий експертний висновок", copy: "Детальний аналіз питання з посиланнями на Податковий кодекс України та алгоритмом дій.", price: "від 2 500 грн" },
+          { title: "Стратегічна сесія з власником бізнесу", copy: "Глибокий аудит поточної моделі компанії, пошук фінансових втрат, план оптимізації (2 години).", price: "від 5 000 грн" },
+        ],
+      },
+      {
+        title: "Фінансовий менеджмент та управлінський облік",
+        items: [
+          { title: "Побудова системи управлінського обліку", copy: "Впровадження головних звітів бізнесу: Cash Flow, P&L, Баланс. Адаптація під специфіку компанії.", price: "від 15 000 грн" },
+          { title: "Розробка калькуляції собівартості", copy: "Інструмент (шаблон/база) для точного розрахунку собівартості товарів/послуг та визначення реальної маржі.", price: "від 6 000 грн" },
+          { title: "Аудит фінансового стану компанії", copy: "Повний аналіз «здоров'я» бізнесу, виявлення касових розривів, аудит дебіторської та кредиторської заборгованості.", price: "від 12 000 грн" },
+        ],
+      },
+      {
+        title: "Податковий консалтинг та захист бізнесу",
+        items: [
+          { title: "Податкове структурування бізнесу", copy: "Підбір найвигіднішої та безпечної податкової моделі (комбінації ФОП/ТОВ), легальне зниження податків.", price: "від 8 000 грн" },
+          { title: "Супровід податкових перевірок", copy: "Підготовка до перевірки ДПС, супровід під час процесу, написання заперечень на акти.", price: "від 10 000 грн" },
+          { title: "Розблокування податкових накладних", copy: "Аналіз причин блокування, підготовка пакету документів, таблиць даних платника ПДВ та скарг.", price: "від 5 000 грн" },
+        ],
+      },
+      {
+        title: "Фінансовий моніторинг та банки",
+        items: [
+          { title: "Супровід фінмоніторингу (для банків)", copy: "Формування легального пакету документів та обґрунтованих пояснень для банку щодо походження коштів.", price: "від 3 500 грн" },
+          { title: "Консалтинг із розблокування рахунків", copy: "Алгоритм дій у разі блокування рахунку ФОП чи фізособи, комунікація з комплаєнс-відділом банку.", price: "від 4 000 грн" },
+        ],
+      },
+      {
+        title: "Готові пакети для малого бізнесу",
+        note: "Ціни вказані орієнтовно. Остаточна вартість залежить від обсягу операцій, кількості номенклатури та штату компанії. Працюємо офіційно за договором (ФОП 3 група, без ПДВ).",
+        items: [
+          { title: "Пакет «Безпечний Старт» (для нових підприємців)", copy: "Консультація щодо вибору КВЕДів та системи оподаткування (групи ФОП); покроковий інструктаж: оплати, рахунки, ліміти, робота з ПРРО/РРО.", price: "від 3 000 грн" },
+          { title: "Пакет «Фінансовий директор на аутсорсі»", copy: "Повний щомісячний контроль фінансів компанії; складання бюджетів, план-факт аналіз, контроль рентабельності; щотижневі звітні зустрічі з власником.", price: "від 20 000 грн / місяць" },
+        ],
+      },
+      {
+        title: "Онлайн-навчання та підвищення кваліфікації персоналу",
+        note: "Після навчання — відеозаписи всіх зустрічей та готові шаблони таблиць. Час сесій підбирається індивідуально.",
+        items: [
+          { title: "Онлайн-інтенсив для штатного бухгалтера (індивідуально)", copy: "Практичні Zoom-сесії: перекваліфікація з класичного обліку на управлінський, автоматизація звітів у Google Таблицях, тонкощі фінмоніторингу.", price: "від 6 000 грн" },
+          { title: "Практичний онлайн-воркшоп з Excel / Google Sheets", copy: "Навчання фінслужби: складні формули, зведені таблиці та дашборди під специфіку бізнесу.", price: "від 5 000 грн" },
+          { title: "Корпоративний онлайн-курс для команди (менеджери / відділ продажів)", copy: "Фінансова грамотність у Zoom: розрахунок собівартості, уникнення дебіторки, контроль маржі.", price: "від 10 000 грн" },
+          { title: "Розробка цифрових інструкцій та регламентів", copy: "Інтерактивні карти і чек-листи для персоналу (приймання первинки, проведення платежів тощо).", price: "від 4 500 грн" },
+        ],
+      },
+      {
+        title: "Міжнародна колаборація та вихід на ринок Німеччини (онлайн)",
+        items: [
+          { title: "Консалтинг «Вихід на ринок Німеччини»", copy: "Аналіз готовності бізнес-моделі, базові вимоги, вибір форми діяльності (UG, GmbH тощо).", price: "від 4 000 грн (або еквівалент у €)" },
+          { title: "Фінансова підготовка до інтеграції (DATEV / SAP / Excel)", copy: "Адаптація звітності та первинних документів під вимоги німецьких податкових офісів і систем автоматизації.", price: "від 8 000 грн" },
+          { title: "Розробка розрахункової бази для європейських партнерів", copy: "Професійна калькуляція собівартості та фінансове обґрунтування (Kalkulationsgrundlage) для німецьких банків чи інвесторів.", price: "від 6 000 грн" },
+          { title: "Супровід комплаєнсу та комунікації", copy: "Підготовка відповідей на запити німецьких банків щодо походження коштів та легальності фінансових потоків.", price: "від 4 500 грн" },
+        ],
+      },
+    ],
+  },
   cta: { pill: "Чому обирають нас", titlePre: "Досвідчені спеціалісти, сучасні технології —", titleItalic: "індивідуальний підхід", button: "Зв'язатися →" },
   team: {
     pill: "Наша команда",
@@ -306,6 +446,71 @@ const ru: Dict = {
       { title: "Регистрация РРО/ПРРО", copy: "Быстро регистрируем и настраиваем кассовые аппараты." },
       { title: "Сопровождение проверок", copy: "Рядом на каждом этапе налоговых проверок и запросов." },
       { title: "Лицензии и гранты", copy: "Лицензии на алкоголь и табак, оформление грантов, финмониторинг." },
+    ],
+  },
+  catalog: {
+    pill: "Полный каталог",
+    titlePre: "Детальные услуги",
+    titleItalic: "и прозрачные цены",
+    categories: [
+      {
+        title: "Экспертные консультации (разовые услуги)",
+        items: [
+          { title: "Индивидуальная консультация (1 час)", copy: "Устный разбор вашего кейса: налоги, ФОП, лимиты, проверка рисков, оптимизация деятельности.", price: "от 1 500 грн / час" },
+          { title: "Письменное экспертное заключение", copy: "Детальный анализ вопроса со ссылками на Налоговый кодекс Украины и алгоритмом действий.", price: "от 2 500 грн" },
+          { title: "Стратегическая сессия с владельцем бизнеса", copy: "Глубокий аудит текущей модели компании, поиск финансовых потерь, план оптимизации (2 часа).", price: "от 5 000 грн" },
+        ],
+      },
+      {
+        title: "Финансовый менеджмент и управленческий учёт",
+        items: [
+          { title: "Построение системы управленческого учёта", copy: "Внедрение главных отчётов бизнеса: Cash Flow, P&L, Баланс. Адаптация под специфику компании.", price: "от 15 000 грн" },
+          { title: "Разработка калькуляции себестоимости", copy: "Инструмент (шаблон/база) для точного расчёта себестоимости товаров/услуг и определения реальной маржи.", price: "от 6 000 грн" },
+          { title: "Аудит финансового состояния компании", copy: "Полный анализ «здоровья» бизнеса, выявление кассовых разрывов, аудит дебиторской и кредиторской задолженности.", price: "от 12 000 грн" },
+        ],
+      },
+      {
+        title: "Налоговый консалтинг и защита бизнеса",
+        items: [
+          { title: "Налоговое структурирование бизнеса", copy: "Подбор самой выгодной и безопасной налоговой модели (комбинации ФОП/ООО), легальное снижение налогов.", price: "от 8 000 грн" },
+          { title: "Сопровождение налоговых проверок", copy: "Подготовка к проверке ГНС, сопровождение в процессе, написание возражений на акты.", price: "от 10 000 грн" },
+          { title: "Разблокировка налоговых накладных", copy: "Анализ причин блокировки, подготовка пакета документов, таблиц данных плательщика НДС и жалоб.", price: "от 5 000 грн" },
+        ],
+      },
+      {
+        title: "Финансовый мониторинг и банки",
+        items: [
+          { title: "Сопровождение финмониторинга (для банков)", copy: "Формирование легального пакета документов и обоснованных пояснений для банка о происхождении средств.", price: "от 3 500 грн" },
+          { title: "Консалтинг по разблокировке счетов", copy: "Алгоритм действий при блокировке счёта ФОП или физлица, коммуникация с комплаенс-отделом банка.", price: "от 4 000 грн" },
+        ],
+      },
+      {
+        title: "Готовые пакеты для малого бизнеса",
+        note: "Цены указаны ориентировочно. Окончательная стоимость зависит от объёма операций, количества номенклатуры и штата компании. Работаем официально по договору (ФОП 3 группа, без НДС).",
+        items: [
+          { title: "Пакет «Безопасный Старт» (для новых предпринимателей)", copy: "Консультация по выбору КВЭДов и системы налогообложения (группы ФОП); пошаговый инструктаж: оплаты, счета, лимиты, работа с ПРРО/РРО.", price: "от 3 000 грн" },
+          { title: "Пакет «Финансовый директор на аутсорсе»", copy: "Полный ежемесячный контроль финансов компании; составление бюджетов, план-факт анализ, контроль рентабельности; еженедельные отчётные встречи с владельцем.", price: "от 20 000 грн / месяц" },
+        ],
+      },
+      {
+        title: "Онлайн-обучение и повышение квалификации персонала",
+        note: "После обучения — видеозаписи всех встреч и готовые шаблоны таблиц. Время сессий подбирается индивидуально.",
+        items: [
+          { title: "Онлайн-интенсив для штатного бухгалтера (индивидуально)", copy: "Практические Zoom-сессии: переквалификация с классического учёта на управленческий, автоматизация отчётов в Google Таблицах, тонкости финмониторинга.", price: "от 6 000 грн" },
+          { title: "Практический онлайн-воркшоп по Excel / Google Sheets", copy: "Обучение финслужбы: сложные формулы, сводные таблицы и дашборды под специфику бизнеса.", price: "от 5 000 грн" },
+          { title: "Корпоративный онлайн-курс для команды (менеджеры / отдел продаж)", copy: "Финансовая грамотность в Zoom: расчёт себестоимости, избежание дебиторки, контроль маржи.", price: "от 10 000 грн" },
+          { title: "Разработка цифровых инструкций и регламентов", copy: "Интерактивные карты и чек-листы для персонала (приём первички, проведение платежей и т.д.).", price: "от 4 500 грн" },
+        ],
+      },
+      {
+        title: "Международная коллаборация и выход на рынок Германии (онлайн)",
+        items: [
+          { title: "Консалтинг «Выход на рынок Германии»", copy: "Анализ готовности бизнес-модели, базовые требования, выбор формы деятельности (UG, GmbH и т.д.).", price: "от 4 000 грн (или эквивалент в €)" },
+          { title: "Финансовая подготовка к интеграции (DATEV / SAP / Excel)", copy: "Адаптация отчётности и первичных документов под требования немецких налоговых офисов и систем автоматизации.", price: "от 8 000 грн" },
+          { title: "Разработка расчётной базы для европейских партнёров", copy: "Профессиональная калькуляция себестоимости и финансовое обоснование (Kalkulationsgrundlage) для немецких банков или инвесторов.", price: "от 6 000 грн" },
+          { title: "Сопровождение комплаенса и коммуникации", copy: "Подготовка ответов на запросы немецких банков о происхождении средств и легальности финансовых потоков.", price: "от 4 500 грн" },
+        ],
+      },
     ],
   },
   cta: { pill: "Почему выбирают нас", titlePre: "Опытные специалисты, современные технологии —", titleItalic: "индивидуальный подход", button: "Связаться →" },
