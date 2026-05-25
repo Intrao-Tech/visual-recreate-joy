@@ -183,6 +183,7 @@ const en: Dict = {
       },
     ],
   },
+  cta: { pill: "Why choose us", titlePre: "Experienced specialists, modern tools —", titleItalic: "an individual approach", button: "Get In Touch →" },
   team: {
     pill: "Our team",
     titlePre: "Specialists you can",
