@@ -118,7 +118,71 @@ const en: Dict = {
       { title: "Licensing & Grants", copy: "Alcohol and tobacco licenses, grant applications, financial monitoring." },
     ],
   },
-  cta: { pill: "Why choose us", titlePre: "Experienced specialists, modern tools —", titleItalic: "an individual approach", button: "Get In Touch →" },
+  catalog: {
+    pill: "Full catalog",
+    titlePre: "Detailed services",
+    titleItalic: "and transparent pricing",
+    categories: [
+      {
+        title: "Expert consultations (one-time services)",
+        items: [
+          { title: "Individual consultation (1 hour)", copy: "A spoken review of your case: taxes, FOP, limits, risk check, optimization of activity.", price: "from 1 500 UAH / hour" },
+          { title: "Written expert opinion", copy: "Detailed analysis of the question with references to the Tax Code of Ukraine and a step-by-step action plan.", price: "from 2 500 UAH" },
+          { title: "Strategic session with the business owner", copy: "Deep audit of the current company model, search for financial leaks, optimization plan (2 hours).", price: "from 5 000 UAH" },
+        ],
+      },
+      {
+        title: "Financial management and managerial accounting",
+        items: [
+          { title: "Building a managerial accounting system", copy: "Implementation of the core business reports: Cash Flow, P&L, Balance sheet. Adapted to your company's specifics.", price: "from 15 000 UAH" },
+          { title: "Cost calculation development", copy: "A tool (template/database) for precise calculation of cost of goods/services and real margin definition.", price: "from 6 000 UAH" },
+          { title: "Audit of the company's financial state", copy: "Full analysis of the business 'health', detection of cash gaps, audit of receivables and payables.", price: "from 12 000 UAH" },
+        ],
+      },
+      {
+        title: "Tax consulting and business protection",
+        items: [
+          { title: "Tax structuring of the business", copy: "Selection of the most beneficial and safe tax model (FOP/LLC combinations), legal tax reduction.", price: "from 8 000 UAH" },
+          { title: "Tax audit support", copy: "Preparation for STS inspections, accompaniment during the process, drafting objections to acts.", price: "from 10 000 UAH" },
+          { title: "Unblocking VAT invoices", copy: "Analysis of blocking reasons, preparation of document package, VAT-payer data tables and complaints.", price: "from 5 000 UAH" },
+        ],
+      },
+      {
+        title: "Financial monitoring and banks",
+        items: [
+          { title: "Financial monitoring support (for banks)", copy: "Building a legal document package and well-grounded explanations for the bank regarding the origin of funds.", price: "from 3 500 UAH" },
+          { title: "Account unblocking consulting", copy: "Action plan in case of FOP or individual account blocking, communication with the bank's compliance department.", price: "from 4 000 UAH" },
+        ],
+      },
+      {
+        title: "Ready-made packages for small business",
+        note: "Prices are indicative. Final cost depends on the volume of operations, number of SKUs and company headcount. We work officially under contract (FOP group 3, without VAT).",
+        items: [
+          { title: "'Safe Start' package (for new entrepreneurs)", copy: "Consultation on KVED codes and tax system (FOP groups); step-by-step guidance: payments, accounts, limits, working with PRRO/RRO.", price: "from 3 000 UAH" },
+          { title: "'Outsourced CFO' package", copy: "Full monthly control of company finances; budgeting, plan-fact analysis, profitability control; weekly reporting meetings with the owner.", price: "from 20 000 UAH / month" },
+        ],
+      },
+      {
+        title: "Online training and staff upskilling",
+        note: "After the training — video recordings of every meeting and ready-to-use spreadsheet templates. Session timing is arranged individually.",
+        items: [
+          { title: "Online intensive for in-house accountant (1-on-1)", copy: "Practical Zoom sessions: requalification from classical to managerial accounting, report automation in Google Sheets, nuances of financial monitoring.", price: "from 6 000 UAH" },
+          { title: "Practical online workshop on Excel / Google Sheets", copy: "Training for the finance team: complex formulas, pivot tables and dashboards tailored to the business.", price: "from 5 000 UAH" },
+          { title: "Corporate online course for the team (managers / sales)", copy: "Financial literacy via Zoom: cost calculation, avoiding receivables, margin control.", price: "from 10 000 UAH" },
+          { title: "Development of digital instructions and regulations", copy: "Interactive maps and checklists for staff (receiving primary documents, processing payments, etc.).", price: "from 4 500 UAH" },
+        ],
+      },
+      {
+        title: "International collaboration and entering the German market (online)",
+        items: [
+          { title: "'Entering the German market' consulting", copy: "Analysis of business model readiness, basic requirements, choice of legal form (UG, GmbH, etc.).", price: "from 4 000 UAH (or equivalent in €)" },
+          { title: "Financial preparation for integration (DATEV / SAP / Excel)", copy: "Adaptation of reporting and primary documents to the requirements of German tax offices and automation systems.", price: "from 8 000 UAH" },
+          { title: "Calculation base development for European partners", copy: "Professional cost calculation and financial justification (Kalkulationsgrundlage) for German banks or investors.", price: "from 6 000 UAH" },
+          { title: "Compliance and communication support", copy: "Preparation of responses to German banks' inquiries regarding the origin of funds and legality of financial flows.", price: "from 4 500 UAH" },
+        ],
+      },
+    ],
+  },
   team: {
     pill: "Our team",
     titlePre: "Specialists you can",
