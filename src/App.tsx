@@ -7,6 +7,7 @@ import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import ServicesPage from "./pages/ServicesPage.tsx";
 import ServiceDetail from "./pages/ServiceDetail.tsx";
+import ScrollToTop from "./components/ScrollToTop";
 import { LanguageProvider } from "@/i18n/LanguageContext";
 
 const queryClient = new QueryClient();
