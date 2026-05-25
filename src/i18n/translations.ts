@@ -27,6 +27,16 @@ export type Dict = {
     titleItalic: string;
     items: { title: string; copy: string }[];
   };
+  catalog: {
+    pill: string;
+    titlePre: string;
+    titleItalic: string;
+    categories: {
+      title: string;
+      note?: string;
+      items: { title: string; copy: string; price: string }[];
+    }[];
+  };
   cta: { pill: string; titlePre: string; titleItalic: string; button: string };
   team: {
     pill: string;
