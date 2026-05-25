@@ -52,6 +52,52 @@ const Services = () => {
           })}
         </div>
       </div>
+
+      <div className="container mt-20 md:mt-28">
+        <div className="max-w-3xl">
+          <span className="pill-light">{t.catalog.pill}</span>
+          <h2 className="mt-6 text-4xl md:text-5xl leading-[1.05]">
+            {t.catalog.titlePre} <span className="italic text-primary">{t.catalog.titleItalic}</span>
+          </h2>
+        </div>
+
+        <div className="mt-12 md:mt-16 space-y-16">
+          {t.catalog.categories.map((cat, ci) => (
+            <div key={ci}>
+              <div className="flex items-baseline gap-4 border-b border-background/15 pb-4">
+                <span className="text-sm text-background/50 tabular-nums">
+                  {ci < 9 ? `0${ci + 1}` : `${ci + 1}`}
+                </span>
+                <h3 className="text-2xl md:text-3xl leading-tight">{cat.title}</h3>
+              </div>
+
+              <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                {cat.items.map((it, ii) => (
+                  <div
+                    key={ii}
+                    className="group relative flex flex-col rounded-3xl border border-background/10 bg-background/5 p-6 transition-all duration-500 hover:bg-primary"
+                  >
+                    <h4 className="text-lg leading-snug">{it.title}</h4>
+                    <p className="mt-3 text-sm text-background/65 group-hover:text-background/90 flex-1">
+                      {it.copy}
+                    </p>
+                    <div className="mt-6 flex items-center justify-between border-t border-background/10 group-hover:border-background/30 pt-4">
+                      <span className="text-base font-medium">{it.price}</span>
+                      <ArrowUpRight className="h-5 w-5 transition-transform duration-500 group-hover:rotate-45" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {cat.note && (
+                <p className="mt-5 text-xs italic text-background/50 max-w-3xl">
+                  {cat.note}
+                </p>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 };
