@@ -10,7 +10,7 @@ const Navbar = () => {
     { label: t.nav.about, to: "/#about" },
     { label: t.nav.cases, to: "/services" },
     { label: t.nav.pricing, to: "/#resources" },
-    { label: t.nav.contact, to: "/#contact" },
+    { label: t.nav.contact, to: "/contact" },
   ];
   return (
     <header className="absolute top-0 left-0 right-0 z-30 pt-6">
@@ -32,7 +32,7 @@ const Navbar = () => {
         </nav>
         <div className="flex items-center gap-4">
           <LanguageSwitcher tone="light" />
-          <a href="/#contact" className="hidden sm:inline-flex btn-light !py-3 !px-5 text-xs">
+          <a href="/contact" className="hidden sm:inline-flex btn-light !py-3 !px-5 text-xs">
             {t.nav.cta}
           </a>
         </div>
