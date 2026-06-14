@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import hero1 from "@/assets/hero-1.jpg";
-import hero2 from "@/assets/hero-2.jpg";
+import heroPhoto from "@/assets/team-portrait-no-grid-2026.jpg";
 import { useLang } from "@/i18n/LanguageContext";
 
-const images = [hero1, hero2];
+const images = [heroPhoto];
 
 const Hero = () => {
   const { t } = useLang();
