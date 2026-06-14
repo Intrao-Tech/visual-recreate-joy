@@ -5,8 +5,7 @@ import Resources from "@/components/site/Resources";
 const ResourcesPage = () => {
   return (
     <main className="min-h-screen bg-background">
-      <Navbar />
-      <div className="pt-32" />
+      <Navbar variant="solid" />
       <Resources />
       <Footer />
     </main>
