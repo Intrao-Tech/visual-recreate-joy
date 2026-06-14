@@ -9,7 +9,7 @@ const Navbar = () => {
     { label: t.nav.home, to: "/" },
     { label: t.nav.about, to: "/#about" },
     { label: t.nav.cases, to: "/services" },
-    { label: t.nav.pricing, to: "/#resources" },
+    { label: t.nav.pricing, to: "/resources" },
     { label: t.nav.contact, to: "/contact" },
   ];
   return (
