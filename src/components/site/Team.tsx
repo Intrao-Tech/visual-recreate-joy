@@ -1,5 +1,5 @@
 import t1 from "@/assets/team-1.jpg";
-import t2 from "@/assets/team-2.jpg";
+import t2 from "@/assets/team-2-v2.jpg";
 import t3 from "@/assets/team-3.jpg";
 import t4 from "@/assets/team-4.jpg";
 import { useLang } from "@/i18n/LanguageContext";
