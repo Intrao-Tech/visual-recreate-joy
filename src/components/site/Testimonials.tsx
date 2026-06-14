@@ -1,10 +1,8 @@
 import { Star } from "lucide-react";
-import t1 from "@/assets/team-3.jpg";
-import t2 from "@/assets/team-portrait-no-grid-2026.jpg";
-import t3 from "@/assets/team-4.jpg";
+import teamPhoto from "@/assets/team-portrait-no-grid-2026.jpg";
 import { useLang } from "@/i18n/LanguageContext";
 
-const imgs = [t1, t2, t3];
+const imgs = [teamPhoto, teamPhoto, teamPhoto];
 
 const Testimonials = () => {
   const { t } = useLang();
