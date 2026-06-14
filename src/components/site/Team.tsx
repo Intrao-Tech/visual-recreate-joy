@@ -6,7 +6,7 @@ const imgs = [teamPhoto, teamPhoto, teamPhoto, teamPhoto];
 const Team = () => {
   const { t } = useLang();
   return (
-    <section className="py-8 md:py-12 container">
+    <section id="team" className="py-8 md:py-12 container scroll-mt-24">
       <div className="grid md:grid-cols-12 gap-8 items-end mb-14">
         <div className="md:col-span-7">
           <span className="pill">{t.team.pill}</span>
@@ -16,7 +16,7 @@ const Team = () => {
         </div>
         <div className="md:col-span-5">
           <p className="text-muted-foreground">{t.team.copy}</p>
-          <a href="#" className="mt-6 inline-block btn-primary">{t.team.button}</a>
+          <a href="#contact" className="mt-6 inline-block btn-primary">{t.team.button}</a>
         </div>
       </div>
 
