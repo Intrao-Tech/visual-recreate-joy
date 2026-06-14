@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import { useLang } from "@/i18n/LanguageContext";
 import LanguageSwitcher from "./LanguageSwitcher";
 
-const Navbar = () => {
+type NavbarProps = { variant?: "overlay" | "solid" };
+
+const Navbar = ({ variant = "overlay" }: NavbarProps) => {
   const { t } = useLang();
   const links = [
     { label: t.nav.home, to: "/" },
@@ -12,9 +14,22 @@ const Navbar = () => {
     { label: t.nav.pricing, to: "/resources" },
     { label: t.nav.contact, to: "/contact" },
   ];
+  const isSolid = variant === "solid";
   return (
-    <header className="absolute top-0 left-0 right-0 z-30 pt-6">
-      <div className="container flex items-center justify-between rounded-full bg-background/40 backdrop-blur-md border border-white/10 px-6 py-3">
+    <header
+      className={
+        isSolid
+          ? "relative z-30 pt-6 pb-2 bg-background"
+          : "absolute top-0 left-0 right-0 z-30 pt-6"
+      }
+    >
+      <div
+        className={`container flex items-center justify-between rounded-full px-6 py-3 border ${
+          isSolid
+            ? "bg-ink/95 backdrop-blur-md border-ink/20"
+            : "bg-background/40 backdrop-blur-md border-white/10"
+        }`}
+      >
         <Link to="/" className="flex items-center gap-2 text-background">
           <Sparkle className="h-5 w-5 fill-primary stroke-primary" />
           <span className="font-display text-2xl">ANGL Consulting</span>
