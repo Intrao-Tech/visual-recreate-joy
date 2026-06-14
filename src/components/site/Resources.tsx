@@ -27,7 +27,7 @@ const Resources = () => {
             <div className="p-6">
               <span className="pill">[{r.tag}]</span>
               <h3 className="mt-4 text-xl font-display leading-tight">{r.title}</h3>
-              <a href="#" className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary">
+              <a href="#contact" className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">
                 <Download className="h-4 w-4" /> {t.resources.download}
               </a>
             </div>
