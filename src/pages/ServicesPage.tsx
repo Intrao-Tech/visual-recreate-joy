@@ -18,7 +18,7 @@ const ServicesPage = () => {
 
           <div className="mt-16 space-y-16">
             {t.catalog.categories.map((cat, ci) => (
-              <div key={ci}>
+              <div key={ci} id={`cat-${ci}`} className="scroll-mt-32">
                 <div className="flex items-baseline gap-4 border-b border-background/15 pb-4">
                   <span className="text-sm text-background/50 tabular-nums">
                     {ci < 9 ? `0${ci + 1}` : `${ci + 1}`}
