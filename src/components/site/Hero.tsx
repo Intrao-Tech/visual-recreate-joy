@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import heroPhoto from "@/assets/team-portrait-no-grid-2026.jpg";
+import heroPhoto from "@/assets/office-clean-2026.jpg";
 import { useLang } from "@/i18n/LanguageContext";
 
 const images = [heroPhoto];

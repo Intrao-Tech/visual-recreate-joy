@@ -1,5 +1,5 @@
 import { Star } from "lucide-react";
-import teamPhoto from "@/assets/team-portrait-no-grid-2026.jpg";
+import teamPhoto from "@/assets/office-clean-2026.jpg";
 import { useLang } from "@/i18n/LanguageContext";
 
 const imgs = [teamPhoto, teamPhoto, teamPhoto];
