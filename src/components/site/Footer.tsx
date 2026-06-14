@@ -10,30 +10,30 @@ const Footer = () => {
   const { t } = useLang();
 
   return (
-    <footer id="footer" className="bg-ink text-background pt-16 pb-8">
+    <footer id="footer" className="bg-ink text-background pt-12 pb-6">
       <div className="container">
-        <div className="grid md:grid-cols-2 gap-6 items-center pb-10 border-b border-background/10">
-          <h3 className="text-3xl md:text-4xl leading-[1.1] font-display">
+        <div className="grid md:grid-cols-2 gap-6 items-center pb-8 border-b border-background/10">
+          <h3 className="text-2xl md:text-3xl leading-[1.1] font-display">
             {t.footer.titlePre} <span className="italic text-primary">{t.footer.titleItalic}</span>
           </h3>
           <div className="md:text-right">
-            <a
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-full bg-primary px-7 py-3 text-sm font-medium text-primary-foreground hover:bg-background hover:text-ink transition-all"
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground hover:bg-background hover:text-ink transition-all"
             >
               {t.footer.button}
-            </a>
+            </Link>
           </div>
         </div>
 
-        <div className="grid md:grid-cols-12 gap-8 py-10">
-          <div className="md:col-span-4">
+        <div className="grid md:grid-cols-12 gap-8 py-8">
+          <div className="md:col-span-3">
             <Link to="/" className="flex items-center gap-2">
               <Sparkle className="h-5 w-5 fill-primary stroke-primary" />
               <span className="font-display text-2xl">ANGL Consulting</span>
             </Link>
-            <p className="mt-4 text-sm text-background/70 max-w-xs">{t.footer.desc}</p>
-            <div className="mt-4 space-y-1 text-sm text-background/70">
+            <p className="mt-3 text-xs text-background/70 max-w-xs">{t.footer.desc}</p>
+            <div className="mt-3 space-y-1 text-xs text-background/70">
               <a href={`mailto:${EMAIL}`} className="block hover:text-primary transition-colors">
                 {EMAIL}
               </a>
@@ -43,17 +43,17 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Services — all categories, 2 columns */}
-          <div className="md:col-span-6">
-            <h4 className="text-xs uppercase tracking-widest text-background/50 font-sans">
+          {/* Services — compact grid */}
+          <div className="md:col-span-7">
+            <h4 className="text-[10px] uppercase tracking-widest text-background/50 font-sans mb-3">
               {t.footer.cols[1]?.h}
             </h4>
-            <ul className="mt-4 grid sm:grid-cols-2 gap-x-6 gap-y-2 text-sm">
+            <ul className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-1.5 text-xs">
               {t.catalog.categories.map((cat, i) => (
                 <li key={i}>
                   <Link
                     to={`/services#cat-${i}`}
-                    className="text-background/85 hover:text-primary transition-colors block leading-snug"
+                    className="text-background/70 hover:text-primary transition-colors block leading-snug"
                   >
                     {cat.title}
                   </Link>
@@ -64,15 +64,15 @@ const Footer = () => {
 
           {/* Company + Social */}
           <div className="md:col-span-2">
-            <h4 className="text-xs uppercase tracking-widest text-background/50 font-sans">
+            <h4 className="text-[10px] uppercase tracking-widest text-background/50 font-sans mb-3">
               {t.footer.cols[0]?.h}
             </h4>
-            <ul className="mt-4 space-y-2 text-sm">
+            <ul className="space-y-1.5 text-xs">
               {(t.footer.cols[0]?.l ?? []).map((label, i) => {
                 const targets = ["/#about", "/#team", "/contact"];
                 return (
                   <li key={label}>
-                    <a href={targets[i] ?? "/contact"} className="text-background/85 hover:text-primary transition-colors">
+                    <a href={targets[i] ?? "/contact"} className="text-background/70 hover:text-primary transition-colors">
                       {label}
                     </a>
                   </li>
@@ -89,7 +89,7 @@ const Footer = () => {
                       href={socials[label] ?? "#"}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-background/85 hover:text-primary transition-colors"
+                      className="text-background/70 hover:text-primary transition-colors"
                     >
                       {label}
                     </a>
@@ -100,7 +100,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="pt-6 border-t border-background/10 flex flex-col md:flex-row justify-between gap-3 text-xs text-background/60">
+        <div className="pt-5 border-t border-background/10 flex flex-col md:flex-row justify-between gap-3 text-[10px] text-background/60">
           <p>{t.footer.rights}</p>
           <div className="flex items-center gap-6">
             <LanguageSwitcher tone="light" />
