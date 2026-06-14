@@ -19,14 +19,14 @@ const Navbar = ({ variant = "overlay" }: NavbarProps) => {
     <header
       className={
         isSolid
-          ? "relative z-30 pt-6 pb-2 bg-background"
-          : "absolute top-0 left-0 right-0 z-30 pt-6"
+          ? "relative z-50 pt-6 pb-2 w-full"
+          : "absolute top-0 left-0 right-0 z-50 pt-6"
       }
     >
       <div
-        className={`container flex items-center justify-between rounded-full px-6 py-3 border ${
+        className={`container flex items-center justify-between rounded-full px-6 py-3 border shadow-lg ${
           isSolid
-            ? "bg-ink/95 backdrop-blur-md border-ink/20"
+            ? "bg-ink backdrop-blur-md border-white/10 shadow-soft"
             : "bg-background/40 backdrop-blur-md border-white/10"
         }`}
       >
