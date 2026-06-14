@@ -67,12 +67,12 @@ const ServiceDetail = () => {
                 {priceLabel[lang]}
               </div>
               <div className="mt-3 text-3xl font-display text-primary">{item.price}</div>
-              <a
-                href="#contact"
+              <Link
+                to="/contact"
                 className="mt-6 inline-flex w-full items-center justify-between rounded-full bg-primary px-5 py-3 text-sm font-medium text-ink hover:bg-background transition-colors"
               >
                 {t.nav.cta} <ArrowUpRight className="h-4 w-4" />
-              </a>
+              </Link>
             </aside>
           </div>
 
