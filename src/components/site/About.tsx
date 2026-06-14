@@ -4,7 +4,7 @@ import { useLang } from "@/i18n/LanguageContext";
 const About = () => {
   const { t } = useLang();
   return (
-    <section className="py-8 md:py-12 container">
+    <section id="about" className="py-8 md:py-12 container scroll-mt-24">
       <div className="grid md:grid-cols-12 gap-10 items-end">
         <div className="md:col-span-8">
           <h2 className="text-4xl md:text-6xl leading-[1.1]">
