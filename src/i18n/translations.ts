@@ -186,8 +186,8 @@ const en: Dict = {
         note: "Capital protection, insurance optimization and retirement planning. Free portfolio analysis on the first call. Online booking via calendar (Zoom / Teams), interactive quiz to assess your situation in 4–5 questions.",
         items: [
           { title: "Insurance (Versicherungen)", copy: "Personal protection (Berufsunfähigkeit, Private Krankenversicherung) and property cover (Haftpflicht, Hausrat) — comparison, selection and contract review.", price: "free first analysis" },
-          { title: "Retirement planning (Altersvorsorge)", copy: "State and private programs: Riester, Rürup, company pension (bAV). Building a personal retirement strategy.", price: "from €150" },
-          { title: "Investment & wealth building (Vermögensaufbau)", copy: "Stocks, funds, ETFs and real estate as investment. Long-term portfolio aligned with your goals and risk profile.", price: "from €200" },
+          { title: "Retirement planning (Altersvorsorge)", copy: "State and private programs: Riester, Rürup, company pension (bAV). Building a personal retirement strategy.", price: "free consultation" },
+          { title: "Investment & wealth building (Vermögensaufbau)", copy: "Stocks, funds, ETFs and real estate as investment. Long-term portfolio aligned with your goals and risk profile.", price: "free consultation" },
           { title: "Financing (Finanzierung)", copy: "Mortgage and real estate financing (Baufinanzierung) — bank comparison, terms negotiation and full process support.", price: "individual" },
           { title: "Free portfolio analysis (Erstgespräch)", copy: "Introductory online session via Zoom/Teams + interactive quiz: find out if you are overpaying for insurance in Germany.", price: "free" },
         ],
@@ -362,8 +362,8 @@ const uk: Dict = {
         note: "Захист капіталу, оптимізація страхування та пенсійне забезпечення. Безкоштовний аналіз портфоліо на першій зустрічі. Онлайн-запис через календар (Zoom / Teams) та інтерактивний квіз із 4–5 питань для оцінки вашої ситуації.",
         items: [
           { title: "Страхування (Versicherungen)", copy: "Особистий захист (Berufsunfähigkeit, Private Krankenversicherung) та майно (Haftpflicht, Hausrat) — порівняння, підбір та перевірка договорів.", price: "безкоштовний первинний аналіз" },
-          { title: "Пенсійне забезпечення (Altersvorsorge)", copy: "Державні та приватні програми: Riester, Rürup, корпоративна пенсія (bAV). Побудова персональної стратегії на пенсію.", price: "від €150" },
-          { title: "Інвестиції та накопичення (Vermögensaufbau)", copy: "Акції, фонди, ETF та нерухомість як інвестиція. Довгостроковий портфель під ваші цілі та профіль ризику.", price: "від €200" },
+          { title: "Пенсійне забезпечення (Altersvorsorge)", copy: "Державні та приватні програми: Riester, Rürup, корпоративна пенсія (bAV). Побудова персональної стратегії на пенсію.", price: "безкоштовна консультація" },
+          { title: "Інвестиції та накопичення (Vermögensaufbau)", copy: "Акції, фонди, ETF та нерухомість як інвестиція. Довгостроковий портфель під ваші цілі та профіль ризику.", price: "безкоштовна консультація" },
           { title: "Кредитування та фінансування (Finanzierung)", copy: "Іпотека та фінансування нерухомості (Baufinanzierung) — порівняння банків, узгодження умов і повний супровід процесу.", price: "індивідуально" },
           { title: "Безкоштовний аналіз портфоліо (Erstgespräch)", copy: "Ознайомча онлайн-сесія в Zoom/Teams + інтерактивний квіз: дізнайтеся, чи переплачуєте ви за страховку в Німеччині.", price: "безкоштовно" },
         ],
@@ -538,8 +538,8 @@ const ru: Dict = {
         note: "Защита капитала, оптимизация страхования и пенсионное обеспечение. Бесплатный анализ портфолио на первой встрече. Онлайн-запись через календарь (Zoom / Teams) и интерактивный квиз из 4–5 вопросов для оценки вашей ситуации.",
         items: [
           { title: "Страхование (Versicherungen)", copy: "Личная защита (Berufsunfähigkeit, Private Krankenversicherung) и имущество (Haftpflicht, Hausrat) — сравнение, подбор и проверка договоров.", price: "бесплатный первичный анализ" },
-          { title: "Пенсионное обеспечение (Altersvorsorge)", copy: "Государственные и частные программы: Riester, Rürup, корпоративная пенсия (bAV). Построение персональной пенсионной стратегии.", price: "от €150" },
-          { title: "Инвестиции и накопления (Vermögensaufbau)", copy: "Акции, фонды, ETF и недвижимость как инвестиция. Долгосрочный портфель под ваши цели и профиль риска.", price: "от €200" },
+          { title: "Пенсионное обеспечение (Altersvorsorge)", copy: "Государственные и частные программы: Riester, Rürup, корпоративная пенсия (bAV). Построение персональной пенсионной стратегии.", price: "бесплатная консультация" },
+          { title: "Инвестиции и накопления (Vermögensaufbau)", copy: "Акции, фонды, ETF и недвижимость как инвестиция. Долгосрочный портфель под ваши цели и профиль риска.", price: "бесплатная консультация" },
           { title: "Кредитование и финансирование (Finanzierung)", copy: "Ипотека и финансирование недвижимости (Baufinanzierung) — сравнение банков, согласование условий и полное сопровождение процесса.", price: "индивидуально" },
           { title: "Бесплатный анализ портфолио (Erstgespräch)", copy: "Ознакомительная онлайн-сессия в Zoom/Teams + интерактивный квиз: узнайте, переплачиваете ли вы за страховку в Германии.", price: "бесплатно" },
         ],
