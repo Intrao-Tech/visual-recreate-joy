@@ -101,7 +101,7 @@ const en: Dict = {
     headPost: "for the longer time period.",
     stats: [
       { n: "300+", l: "Clients served", copy: "Real businesses, real results across multiple industries." },
-      { n: "5+", l: "Years of experience", copy: "Years of hands-on practice with FOP, LLC and complex cases." },
+      { n: "15+", l: "Years of experience", copy: "15+ years of hands-on practice with FOP, LLC and complex cases." },
       { n: "100%", l: "Compliance focus", copy: "Every report on time, every detail checked, every law respected." },
     ],
   },
@@ -277,7 +277,7 @@ const uk: Dict = {
     headPost: "впродовж довгого часу.",
     stats: [
       { n: "300+", l: "Клієнтів", copy: "Реальні бізнеси та реальні результати в різних сферах." },
-      { n: "5+", l: "Років досвіду", copy: "Роки практики з ФОП, ТОВ та складними кейсами." },
+      { n: "15+", l: "Років досвіду", copy: "15+ років практики з ФОП, ТОВ та складними кейсами." },
       { n: "100%", l: "Дотримання норм", copy: "Звіти вчасно, кожна деталь перевірена, закон дотримано." },
     ],
   },
@@ -453,7 +453,7 @@ const ru: Dict = {
     headPost: "на длительный период.",
     stats: [
       { n: "300+", l: "Клиентов", copy: "Реальные бизнесы и реальные результаты в разных сферах." },
-      { n: "5+", l: "Лет опыта", copy: "Годы практики с ФОП, ООО и сложными кейсами." },
+      { n: "15+", l: "Лет опыта", copy: "15+ лет практики с ФОП, ООО и сложными кейсами." },
       { n: "100%", l: "Соблюдение норм", copy: "Отчёты вовремя, каждая деталь проверена, закон соблюдён." },
     ],
   },
