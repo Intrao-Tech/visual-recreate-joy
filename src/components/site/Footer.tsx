@@ -69,7 +69,7 @@ const Footer = () => {
             </h4>
             <ul className="space-y-1.5 text-xs">
               {(t.footer.cols[0]?.l ?? []).map((label, i) => {
-                const targets = ["/#about", "/#team", "/contact"];
+                const targets = ["/#about", "/contact"];
                 return (
                   <li key={label}>
                     <a href={targets[i] ?? "/contact"} className="text-background/70 hover:text-primary transition-colors">

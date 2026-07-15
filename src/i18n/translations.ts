@@ -38,14 +38,6 @@ export type Dict = {
     }[];
   };
   cta: { pill: string; titlePre: string; titleItalic: string; button: string };
-  team: {
-    pill: string;
-    titlePre: string;
-    titleItalic: string;
-    copy: string;
-    button: string;
-    members: { name: string; role: string }[];
-  };
   testimonials: {
     pill: string;
     titlePre: string;
@@ -195,19 +187,6 @@ const en: Dict = {
     ],
   },
   cta: { pill: "Why choose us", titlePre: "Experienced specialists, modern tools —", titleItalic: "an individual approach", button: "Get In Touch →" },
-  team: {
-    pill: "Our team",
-    titlePre: "Specialists you can",
-    titleItalic: "trust your business to",
-    copy: "An experienced team that combines deep expertise with modern tools to keep your books in perfect order.",
-    button: "Learn About Us →",
-    members: [
-      { name: "Jane Cooper", role: "Lead accountant" },
-      { name: "Esther Howard", role: "Tax specialist" },
-      { name: "Robert Fox", role: "Bookkeeping expert" },
-      { name: "Leslie Alexander", role: "Senior consultant" },
-    ],
-  },
   testimonials: {
     pill: "Client reviews",
     titlePre: "Trusted by",
@@ -239,7 +218,7 @@ const en: Dict = {
     button: "Book A Free Meeting →",
     desc: "ANGL Consulting helps businesses register, run their books, and stay compliant — with an individual approach for every client.",
     cols: [
-      { h: "Company", l: ["About us", "Team", "Contact"] },
+      { h: "Company", l: ["About us", "Contact"] },
       { h: "Services", l: ["Bookkeeping", "Registration", "Audit Support"] },
       { h: "Contact", l: ["+380 12 345 67 89", "info@anglconsulting.com"] },
       { h: "Follow us", l: ["Facebook", "Instagram"] },
@@ -371,19 +350,6 @@ const uk: Dict = {
     ],
   },
   cta: { pill: "Чому обирають нас", titlePre: "Досвідчені спеціалісти, сучасні технології —", titleItalic: "індивідуальний підхід", button: "Зв'язатися →" },
-  team: {
-    pill: "Наша команда",
-    titlePre: "Спеціалісти, яким можна",
-    titleItalic: "довірити свій бізнес",
-    copy: "Досвідчена команда, що поєднує глибокий професіоналізм із сучасними інструментами, щоб ваша бухгалтерія була в ідеальному порядку.",
-    button: "Дізнатися про нас →",
-    members: [
-      { name: "Jane Cooper", role: "Провідний бухгалтер" },
-      { name: "Esther Howard", role: "Податковий спеціаліст" },
-      { name: "Robert Fox", role: "Експерт з обліку" },
-      { name: "Leslie Alexander", role: "Старший консультант" },
-    ],
-  },
   testimonials: {
     pill: "Відгуки клієнтів",
     titlePre: "Нам довіряють понад",
@@ -415,7 +381,7 @@ const uk: Dict = {
     button: "Записатися на зустріч →",
     desc: "ANGL Consulting допомагає бізнесам реєструватись, вести облік і дотримуватись норм — з індивідуальним підходом до кожного клієнта.",
     cols: [
-      { h: "Компанія", l: ["Про нас", "Команда", "Контакти"] },
+      { h: "Компанія", l: ["Про нас", "Контакти"] },
       { h: "Послуги", l: ["Бухоблік", "Реєстрація", "Супровід перевірок"] },
       { h: "Контакти", l: ["+380 12 345 67 89", "info@anglconsulting.com"] },
       { h: "Слідкуйте", l: ["Facebook", "Instagram"] },
@@ -547,19 +513,6 @@ const ru: Dict = {
     ],
   },
   cta: { pill: "Почему выбирают нас", titlePre: "Опытные специалисты, современные технологии —", titleItalic: "индивидуальный подход", button: "Связаться →" },
-  team: {
-    pill: "Наша команда",
-    titlePre: "Специалисты, которым можно",
-    titleItalic: "доверить свой бизнес",
-    copy: "Опытная команда, сочетающая глубокий профессионализм с современными инструментами, чтобы ваша бухгалтерия была в идеальном порядке.",
-    button: "Узнать о нас →",
-    members: [
-      { name: "Jane Cooper", role: "Ведущий бухгалтер" },
-      { name: "Esther Howard", role: "Налоговый специалист" },
-      { name: "Robert Fox", role: "Эксперт по учёту" },
-      { name: "Leslie Alexander", role: "Старший консультант" },
-    ],
-  },
   testimonials: {
     pill: "Отзывы клиентов",
     titlePre: "Нам доверяют более",
@@ -591,7 +544,7 @@ const ru: Dict = {
     button: "Записаться на встречу →",
     desc: "ANGL Consulting помогает бизнесам регистрироваться, вести учёт и соблюдать нормы — с индивидуальным подходом к каждому клиенту.",
     cols: [
-      { h: "Компания", l: ["О нас", "Команда", "Контакты"] },
+      { h: "Компания", l: ["О нас", "Контакты"] },
       { h: "Услуги", l: ["Бухучёт", "Регистрация", "Сопровождение проверок"] },
       { h: "Контакты", l: ["+380 12 345 67 89", "info@anglconsulting.com"] },
       { h: "Соцсети", l: ["Facebook", "Instagram"] },
