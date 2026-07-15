@@ -51,10 +51,12 @@ export const webSiteLd = (lang: Lang): JsonLd => ({
  * simply get no offer, rather than a made-up one.
  */
 export const parseMinPrice = (price: string): number | undefined => {
-  //   = non-breaking space, used as a thousands separator in this copy.
-  const match = price.replace(/ /g, " ").match(/\d[\d ]*/);
+  // \u00A0 is the non-breaking space this copy uses as a thousands separator
+  // ("від 1\u00A0500 грн"). Written as an escape, not the literal character, so it is
+  // visible to whoever reads this next.
+  const match = price.replace(/\u00A0/g, " ").match(/\d[\d ]*/);
   if (!match) return undefined;
-  const value = Number(match[0].replace(/ /g, ""));
+  const value = Number(match[0].replace(/\s/g, ""));
   return Number.isFinite(value) && value > 0 ? value : undefined;
 };
 

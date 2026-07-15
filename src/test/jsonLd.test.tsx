@@ -7,6 +7,13 @@ import { allServiceSlugs, positionForSlug } from "@/i18n/catalogSlugs";
 import { parseMinPrice, ORG_ID } from "@/lib/jsonLd";
 import { CONTACTS } from "@/lib/contacts";
 
+/**
+ * JSON-LD graph nodes are heterogeneous by design — Organization, Service and
+ * BreadcrumbList share no shape. Narrowing every field access here would bury
+ * the assertions in type guards for no safety gain: these tests read parsed
+ * JSON and assert on it, which is exactly what `any` is for.
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Node = Record<string, any>;
 
 const renderLd = async (path: string) => {
