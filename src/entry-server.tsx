@@ -6,6 +6,7 @@ import { AppShell } from "./App";
 // Re-exported so the prerender script gets the URL list from the same SSR
 // bundle it renders with — one import, and no chance of the two disagreeing.
 export { prerenderUrls } from "./urls";
+export { PREFIXED_LANGS } from "./i18n/routing";
 
 /**
  * Renders one route to complete HTML at build time.

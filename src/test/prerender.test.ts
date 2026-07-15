@@ -6,15 +6,25 @@ import { translations } from "@/i18n/translations";
 import { LANGS } from "@/i18n/routing";
 
 /**
- * These assert against dist/, so they only run after a build. A prerender that
- * silently produced empty shells would still exit 0 and look green — which is
- * exactly the failure this suite exists to catch — so skip loudly rather than
- * pass vacuously when dist/ isn't there.
+ * These assert against dist/, so they need a build first.
+ *
+ * Deliberately NOT skipped when dist/ is missing: skipping would let a
+ * pipeline that forgot to build report all-green while never checking the one
+ * thing this suite exists to guarantee — that the prerender actually produced
+ * content. A silent skip is indistinguishable from a pass, and that is how the
+ * __404__ og:url leak shipped. `npm test` runs `npm run build` first (pretest),
+ * so this failing means something is genuinely wrong.
  */
 const built = existsSync("dist/index.html") && existsSync("dist/404.html");
 const read = (p: string) => readFileSync(p, "utf8");
 const fileFor = (url: string) =>
   url === "/" ? "dist/index.html" : `dist${url}/index.html`;
+
+describe("the build ran before these tests", () => {
+  it("has a dist/ to check — run `npm run build` if this fails", () => {
+    expect(built, "dist/index.html or dist/404.html missing: prerender tests cannot verify anything").toBe(true);
+  });
+});
 
 describe.runIf(built)("prerendered output", () => {
   it("writes a file for every URL the sitemap advertises", () => {
@@ -85,6 +95,59 @@ describe.runIf(built)("prerendered output", () => {
     expect(html).toContain('content="noindex, follow"');
     expect(html).not.toContain('rel="canonical"');
     expect(read("dist/sitemap.xml")).not.toContain("__404__");
+  });
+
+  it("builds a 404 per language, so /en/ misses aren't served Ukrainian", () => {
+    for (const [file, lang, marker] of [
+      ["dist/404.html", "uk", translations.uk.notFound.title],
+      ["dist/en/404.html", "en", translations.en.notFound.title],
+      ["dist/ru/404.html", "ru", translations.ru.notFound.title],
+    ] as const) {
+      expect(existsSync(file), `${file} missing`).toBe(true);
+      expect(read(file)).toMatch(new RegExp(`<html[^>]*lang="${lang}"`));
+      expect(read(file)).toContain(marker);
+    }
+  });
+
+  /**
+   * The 404 page is rendered at a sentinel path and served at arbitrary missing
+   * URLs, so any URL baked into it is wrong by construction. The sentinel
+   * leaking into og:url shipped once already — it is invisible unless asserted.
+   */
+  it("never leaks the __404__ sentinel into any built file", () => {
+    const leaked = [
+      "dist/404.html",
+      "dist/en/404.html",
+      "dist/ru/404.html",
+      "dist/index.html",
+      "dist/sitemap.xml",
+      "dist/_redirects",
+    ].filter((f) => existsSync(f) && read(f).includes("__404__"));
+    expect(leaked, "these files leak the sentinel path").toEqual([]);
+  });
+
+  it("never bakes a per-page URL into the 404, which is served at URLs it wasn't built at", () => {
+    for (const f of ["dist/404.html", "dist/en/404.html", "dist/ru/404.html"]) {
+      const ogUrl = read(f).match(/<meta property="og:url" content="([^"]*)"/)?.[1];
+      // useSeo emits no og:url on a noindex page, so what remains is index.html's
+      // static fallback pointing at the homepage. That is fine — sharing a 404
+      // previews the site. What must never appear is the sentinel path or a
+      // claim about a specific page that doesn't exist.
+      if (ogUrl !== undefined) {
+        expect(ogUrl).toBe("https://angl-consulting.com/");
+      }
+      expect(read(f)).not.toContain("__404__");
+    }
+  });
+
+  it("points the 404 language switcher at language homes, not at the missing path", () => {
+    // Linking to the current path in another language would 404 again, and would
+    // differ between build time and serve time — a hydration mismatch.
+    const hrefs = Array.from(read("dist/404.html").matchAll(/hreflang="(uk|en|ru)"[^>]*href="([^"]*)"|href="([^"]*)"[^>]*hreflang="(uk|en|ru)"/g));
+    for (const m of hrefs) {
+      const href = m[2] ?? m[3];
+      expect(href).not.toContain("__404__");
+    }
   });
 
   it("does not ship the SSR build tooling to the CDN", () => {

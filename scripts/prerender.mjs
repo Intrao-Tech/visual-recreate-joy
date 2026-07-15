@@ -23,7 +23,7 @@ const dist = join(root, "dist");
 
 // The SSR bundle is built outside dist/ on purpose — it is a build tool, not
 // something to upload to the CDN.
-const { render, prerenderUrls } = await import(
+const { render, prerenderUrls, PREFIXED_LANGS } = await import(
   pathToFileURL(join(root, ".prerender/entry-server.js")).href
 );
 
@@ -64,24 +64,39 @@ for (const url of urls) {
 }
 
 /**
- * dist/404.html — the styled NotFound page, prerendered.
+ * 404.html — the styled NotFound page, prerendered once per language.
  *
- * This is what fixes "unknown URLs return 200": on a static host with no
- * catch-all rewrite, a path with no matching file is genuinely missing, and the
- * host answers 404 while serving this document. Every real route now exists as
- * a real file, so the SPA fallback that caused the 200s isn't needed any more.
+ * This is what fixes "unknown URLs return 200". Cloudflare Pages: "If your
+ * project does not include a top-level 404.html file, Pages assumes that you
+ * are deploying a single-page application" and routes every path to `/`. The
+ * presence of this file is what turns that off, so a path with no matching
+ * file is genuinely missing and the host answers a real 404.
  *
- * Hosts that use this convention include Cloudflare Pages, Netlify and GitHub
- * Pages. Lovable's own hosting ignores it and keeps answering 200 — its
- * extensionless SPA fallback is not configurable from this repo, which is why
+ * One per language because Pages "will continue to look up the directory tree
+ * for a matching 404.html file": /en/nope finds dist/en/404.html. A single
+ * Ukrainian 404.html would be served for /en/nope too, and the client — which
+ * reads the language from the URL — would hydrate it as English against
+ * Ukrainian markup, mismatch, and re-render with a visible flash.
+ *
+ * Lovable's hosting ignores all of this and keeps answering 200; its
+ * extensionless SPA fallback isn't configurable from this repo, which is why
  * point 4 only lands once hosting moves.
  */
-try {
-  const html = await render("/__404__", template);
-  writeFileSync(join(dist, "404.html"), html);
-  written++;
-} catch (error) {
-  failures.push(`404.html: ${error.message}`);
+const notFoundPages = [
+  { path: "404.html", url: "/__404__" },
+  ...PREFIXED_LANGS.map((lang) => ({ path: `${lang}/404.html`, url: `/${lang}/__404__` })),
+];
+
+for (const page of notFoundPages) {
+  try {
+    const html = await render(page.url, template);
+    const out = join(dist, page.path);
+    mkdirSync(dirname(out), { recursive: true });
+    writeFileSync(out, html);
+    written++;
+  } catch (error) {
+    failures.push(`${page.path}: ${error.message}`);
+  }
 }
 
 if (failures.length > 0) {
@@ -90,4 +105,6 @@ if (failures.length > 0) {
   process.exit(1);
 }
 
-console.log(`prerender: ${urls.length} routes + 404.html written as static HTML`);
+console.log(
+  `prerender: ${urls.length} routes + ${notFoundPages.length} 404 pages written as static HTML`,
+);

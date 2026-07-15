@@ -59,6 +59,13 @@ export const useSeo = ({ title, description, type = "website", noindex = false }
         })),
       ];
 
+  // og:url is dropped on noindex pages for the same reason as the canonical —
+  // it is a canonical claim in Open Graph clothing. It also must not exist on
+  // the 404: that page is prerendered once at a sentinel path and then served
+  // at whatever URL is missing, so any URL baked into it is wrong by
+  // construction.
+  const ogUrl = noindex ? [] : [{ property: "og:url", content: canonical }];
+
   useHead({
     title: fullTitle,
     htmlAttrs: { lang },
@@ -69,7 +76,7 @@ export const useSeo = ({ title, description, type = "website", noindex = false }
       { property: "og:type", content: type },
       { property: "og:site_name", content: SITE_NAME },
       { property: "og:locale", content: OG_LOCALE[lang] },
-      { property: "og:url", content: canonical },
+      ...ogUrl,
       { property: "og:title", content: fullTitle },
       { property: "og:description", content: desc },
       { property: "og:image", content: OG_IMAGE },

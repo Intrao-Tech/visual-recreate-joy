@@ -1,4 +1,19 @@
+import { createContext, useContext } from "react";
 import type { Lang } from "./translations";
+
+/**
+ * True when the current URL matches no route (the 404 page).
+ *
+ * Two things depend on it. The language switcher must not offer "this page in
+ * English" for a page that doesn't exist — that link would just 404 again — so
+ * on a 404 it points at each language's home instead. And because the 404 page
+ * is prerendered once and then served at arbitrary missing URLs, anything that
+ * renders from the current path would differ between build time and serve time
+ * and break hydration. Linking to language roots is both the correct UX and the
+ * only path-independent option.
+ */
+export const UnroutedContext = createContext(false);
+export const useIsUnrouted = () => useContext(UnroutedContext);
 
 /**
  * Language lives in the URL, not in localStorage.
