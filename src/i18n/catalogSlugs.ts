@@ -1,5 +1,3 @@
-import { translations } from "./translations";
-
 /**
  * Human-readable URL slugs for the service catalog.
  *
@@ -16,7 +14,13 @@ import { translations } from "./translations";
  * translations.<lang>.catalog.categories[ci].items[ii]. This mirrors the
  * positional parity the catalog already relies on (ServiceDetail resolves an
  * index against whichever language is active), and catalogSlugs.test.ts fails
- * the build if the two ever drift apart.
+ * the build if the two ever drift apart in *shape*.
+ *
+ * What the tests cannot check: whether a slug's words actually describe the
+ * service at that position. Swapping two slugs within a category leaves the
+ * table unique, shape-matched and internally consistent, so every test still
+ * passes while the URLs serve mismatched content. When editing this table,
+ * re-read it against the titles in translations.ts by eye.
  */
 export const catalogSlugs: readonly (readonly string[])[] = [
   // 0 — Експертні консультації (разові послуги)
@@ -84,7 +88,3 @@ export const legacySlugToSlug = (slug: string): string | undefined => {
   if (!match) return undefined;
   return slugFor(Number(match[1]), Number(match[2]));
 };
-
-/** Catalog shape, derived from the source language. Exported for the parity test. */
-export const catalogShape = (): number[] =>
-  translations.uk.catalog.categories.map((c) => c.items.length);

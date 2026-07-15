@@ -3,37 +3,50 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
-import ServicesPage from "./pages/ServicesPage.tsx";
-import ServiceDetail from "./pages/ServiceDetail.tsx";
-import ContactPage from "./pages/ContactPage.tsx";
-import ResourcesPage from "./pages/ResourcesPage.tsx";
 import ScrollToTop from "./components/ScrollToTop";
 import { LanguageProvider } from "@/i18n/LanguageContext";
+import { PREFIXED_LANGS } from "@/i18n/routing";
+import { siteRoutes } from "./routes";
 
 const queryClient = new QueryClient();
 
+/**
+ * Every route is declared once per language: Ukrainian bare (`/services`) plus
+ * one prefixed tree per other language (`/en/services`, `/ru/services`).
+ *
+ * Declared explicitly rather than via an optional `/:lang?` segment, which
+ * would match `/anything` as a language and quietly turn a typo into the
+ * Ukrainian homepage instead of a 404.
+ */
+export const AppRoutes = () => (
+  <Routes>
+    {siteRoutes.map((r) => (
+      <Route key={`uk-${r.path}`} path={`/${r.path}`} element={r.element} />
+    ))}
+    {PREFIXED_LANGS.flatMap((lang) =>
+      siteRoutes.map((r) => (
+        <Route key={`${lang}-${r.path}`} path={`/${lang}/${r.path}`} element={r.element} />
+      )),
+    )}
+    {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+    <Route path="*" element={<NotFound />} />
+  </Routes>
+);
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <LanguageProvider>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        {/* LanguageProvider reads the language off the URL, so it must live inside the router. */}
+        <LanguageProvider>
           <ScrollToTop />
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/services" element={<ServicesPage />} />
-            <Route path="/services/:slug" element={<ServiceDetail />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/resources" element={<ResourcesPage />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
-    </LanguageProvider>
+          <AppRoutes />
+        </LanguageProvider>
+      </BrowserRouter>
+    </TooltipProvider>
   </QueryClientProvider>
 );
 

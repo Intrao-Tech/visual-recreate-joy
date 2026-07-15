@@ -1,5 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "@/i18n/Link";
 import s1 from "@/assets/service-1.jpg";
 import s2 from "@/assets/service-2.jpg";
 import s3 from "@/assets/service-3.jpg";

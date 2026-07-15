@@ -1,9 +1,11 @@
-import { Link, useParams, Navigate } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
+import { Link } from "@/i18n/Link";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
 import { useLang } from "@/i18n/LanguageContext";
 import { positionForSlug, slugFor, legacySlugToSlug } from "@/i18n/catalogSlugs";
+import { withLang } from "@/i18n/routing";
 
 const ServiceDetail = () => {
   const { t, lang } = useLang();
@@ -13,13 +15,15 @@ const ServiceDetail = () => {
   // send them to the canonical slug rather than dropping them on /services.
   // Client-side only — Lovable hosting cannot issue a real 301.
   const legacyTarget = legacySlugToSlug(slug);
-  if (legacyTarget) return <Navigate to={`/services/${legacyTarget}`} replace />;
+  if (legacyTarget) {
+    return <Navigate to={withLang(`/services/${legacyTarget}`, lang)} replace />;
+  }
 
   const position = positionForSlug(slug);
   const cat = position ? t.catalog.categories[position.ci] : undefined;
   const item = position ? cat?.items[position.ii] : undefined;
 
-  if (!position || !cat || !item) return <Navigate to="/services" replace />;
+  if (!position || !cat || !item) return <Navigate to={withLang("/services", lang)} replace />;
 
   const { ci, ii } = position;
 
