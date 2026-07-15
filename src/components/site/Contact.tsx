@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useLang } from "@/i18n/LanguageContext";
 import { toast } from "@/hooks/use-toast";
+import { CONTACTS, MAILTO, TEL, mailtoWith } from "@/lib/contacts";
+import { FacebookIcon, TelegramIcon } from "./BrandIcons";
 
 const COPY = {
   uk: {
@@ -15,6 +17,7 @@ const COPY = {
     submit: "Надіслати →",
     sent: "Дякуємо! Ми з вами зв’яжемось.",
     or: "Або напишіть напряму:",
+    subject: "Заявка з сайту",
   },
   en: {
     pill: "Contact",
@@ -28,6 +31,7 @@ const COPY = {
     submit: "Send →",
     sent: "Thank you! We’ll be in touch shortly.",
     or: "Or reach out directly:",
+    subject: "Website enquiry",
   },
   ru: {
     pill: "Контакты",
@@ -41,11 +45,9 @@ const COPY = {
     submit: "Отправить →",
     sent: "Спасибо! Мы скоро свяжемся с вами.",
     or: "Или напишите напрямую:",
+    subject: "Заявка с сайта",
   },
 };
-
-const EMAIL = "info@anglconsulting.com";
-const PHONE = "+380 12 345 67 89";
 
 const Contact = () => {
   const { lang } = useLang();
@@ -54,11 +56,10 @@ const Contact = () => {
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Заявка з сайту — ${form.name}`);
-    const body = encodeURIComponent(
+    window.location.href = mailtoWith(
+      `${c.subject} — ${form.name}`,
       `${c.name}: ${form.name}\n${c.email}: ${form.email}\n${c.phone}: ${form.phone}\n\n${form.message}`,
     );
-    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
     toast({ title: c.sent });
   };
 
@@ -73,12 +74,34 @@ const Contact = () => {
           <p className="mt-6 text-muted-foreground max-w-md">{c.desc}</p>
           <div className="mt-8 text-sm text-muted-foreground">
             <p className="mb-2">{c.or}</p>
-            <a href={`mailto:${EMAIL}`} className="block text-foreground hover:text-primary transition-colors">
-              {EMAIL}
+            <a href={MAILTO} className="block text-foreground hover:text-primary transition-colors">
+              {CONTACTS.email}
             </a>
-            <a href={`tel:${PHONE.replace(/\s/g, "")}`} className="block text-foreground hover:text-primary transition-colors">
-              {PHONE}
+            <a href={TEL} className="block text-foreground hover:text-primary transition-colors">
+              {CONTACTS.phoneDisplay}
             </a>
+            <div className="mt-4 flex items-center gap-3">
+              <a
+                href={CONTACTS.telegramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Telegram ${CONTACTS.telegramHandle}`}
+                title={`Telegram ${CONTACTS.telegramHandle}`}
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-foreground hover:border-primary hover:text-primary transition-colors"
+              >
+                <TelegramIcon className="h-5 w-5" />
+              </a>
+              <a
+                href={CONTACTS.facebookUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                title="Facebook"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-foreground hover:border-primary hover:text-primary transition-colors"
+              >
+                <FacebookIcon className="h-5 w-5" />
+              </a>
+            </div>
           </div>
         </div>
 

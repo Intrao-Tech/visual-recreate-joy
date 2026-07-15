@@ -1,4 +1,5 @@
-import { Download } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import r1 from "@/assets/service-1.jpg";
 import r2 from "@/assets/service-4.jpg";
 import r3 from "@/assets/about.jpg";
@@ -27,9 +28,12 @@ const Resources = () => {
             <div className="p-6">
               <span className="pill">[{r.tag}]</span>
               <h3 className="mt-4 text-xl font-display leading-tight">{r.title}</h3>
-              <a href="#contact" className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">
-                <Download className="h-4 w-4" /> {t.resources.download}
-              </a>
+              <Link
+                to="/contact"
+                className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
+              >
+                {t.resources.download} <ArrowUpRight className="h-4 w-4" />
+              </Link>
             </div>
           </article>
         ))}

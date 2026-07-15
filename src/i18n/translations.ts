@@ -59,7 +59,11 @@ export type Dict = {
     titleItalic: string;
     button: string;
     desc: string;
-    cols: { h: string; l: string[] }[];
+    companyH: string;
+    companyAbout: string;
+    companyContact: string;
+    servicesH: string;
+    contactH: string;
     rights: string;
     crafted: string;
   };
@@ -217,12 +221,11 @@ const en: Dict = {
     titleItalic: "consultation.",
     button: "Book A Free Meeting →",
     desc: "ANGL Consulting helps businesses register, run their books, and stay compliant — with an individual approach for every client.",
-    cols: [
-      { h: "Company", l: ["About us", "Contact"] },
-      { h: "Services", l: ["Bookkeeping", "Registration", "Audit Support"] },
-      { h: "Contact", l: ["+380 12 345 67 89", "info@anglconsulting.com"] },
-      { h: "Follow us", l: ["Facebook", "Instagram"] },
-    ],
+    companyH: "Company",
+    companyAbout: "About us",
+    companyContact: "Contact",
+    servicesH: "Services",
+    contactH: "Contact",
     rights: "© 2026 ANGL Consulting. All Rights Reserved",
     crafted: "Crafted with care.",
   },
@@ -380,12 +383,11 @@ const uk: Dict = {
     titleItalic: "консультацію.",
     button: "Записатися на зустріч →",
     desc: "ANGL Consulting допомагає бізнесам реєструватись, вести облік і дотримуватись норм — з індивідуальним підходом до кожного клієнта.",
-    cols: [
-      { h: "Компанія", l: ["Про нас", "Контакти"] },
-      { h: "Послуги", l: ["Бухоблік", "Реєстрація", "Супровід перевірок"] },
-      { h: "Контакти", l: ["+380 12 345 67 89", "info@anglconsulting.com"] },
-      { h: "Слідкуйте", l: ["Facebook", "Instagram"] },
-    ],
+    companyH: "Компанія",
+    companyAbout: "Про нас",
+    companyContact: "Контакти",
+    servicesH: "Послуги",
+    contactH: "Контакти",
     rights: "© 2026 ANGL Consulting. Усі права захищені",
     crafted: "Зроблено з турботою.",
   },
@@ -543,12 +545,11 @@ const ru: Dict = {
     titleItalic: "консультацию.",
     button: "Записаться на встречу →",
     desc: "ANGL Consulting помогает бизнесам регистрироваться, вести учёт и соблюдать нормы — с индивидуальным подходом к каждому клиенту.",
-    cols: [
-      { h: "Компания", l: ["О нас", "Контакты"] },
-      { h: "Услуги", l: ["Бухучёт", "Регистрация", "Сопровождение проверок"] },
-      { h: "Контакты", l: ["+380 12 345 67 89", "info@anglconsulting.com"] },
-      { h: "Соцсети", l: ["Facebook", "Instagram"] },
-    ],
+    companyH: "Компания",
+    companyAbout: "О нас",
+    companyContact: "Контакты",
+    servicesH: "Услуги",
+    contactH: "Контакты",
     rights: "© 2026 ANGL Consulting. Все права защищены",
     crafted: "Сделано с заботой.",
   },

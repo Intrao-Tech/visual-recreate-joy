@@ -1,10 +1,9 @@
 import { Sparkle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLang } from "@/i18n/LanguageContext";
+import { CONTACTS, MAILTO, TEL } from "@/lib/contacts";
+import { FacebookIcon, TelegramIcon } from "./BrandIcons";
 import LanguageSwitcher from "./LanguageSwitcher";
-
-const EMAIL = "info@anglconsulting.com";
-const PHONE = "+380 12 345 67 89";
 
 const Footer = () => {
   const { t } = useLang();
@@ -33,22 +32,14 @@ const Footer = () => {
               <span className="font-display text-2xl">ANGL Consulting</span>
             </Link>
             <p className="mt-3 text-xs text-background/70 max-w-xs">{t.footer.desc}</p>
-            <div className="mt-3 space-y-1 text-xs text-background/70">
-              <a href={`mailto:${EMAIL}`} className="block hover:text-primary transition-colors">
-                {EMAIL}
-              </a>
-              <a href={`tel:${PHONE.replace(/\s/g, "")}`} className="block hover:text-primary transition-colors">
-                {PHONE}
-              </a>
-            </div>
           </div>
 
           {/* Services — compact grid */}
-          <div className="md:col-span-7">
+          <div className="md:col-span-4">
             <h4 className="text-[10px] uppercase tracking-widest text-background/50 font-sans mb-3">
-              {t.footer.cols[1]?.h}
+              {t.footer.servicesH}
             </h4>
-            <ul className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-1.5 text-xs">
+            <ul className="grid grid-cols-2 gap-x-6 gap-y-1.5 text-xs">
               {t.catalog.categories.map((cat, i) => (
                 <li key={i}>
                   <Link
@@ -62,40 +53,64 @@ const Footer = () => {
             </ul>
           </div>
 
+          {/* Contact */}
+          <div className="md:col-span-3">
+            <h4 className="text-[10px] uppercase tracking-widest text-background/50 font-sans mb-3">
+              {t.footer.contactH}
+            </h4>
+            <ul className="space-y-1.5 text-xs">
+              <li>
+                <a href={MAILTO} className="text-background/70 hover:text-primary transition-colors break-all">
+                  {CONTACTS.email}
+                </a>
+              </li>
+              <li>
+                <a href={TEL} className="text-background/70 hover:text-primary transition-colors">
+                  {CONTACTS.phoneDisplay}
+                </a>
+              </li>
+            </ul>
+
+            <div className="mt-3 flex items-center gap-2">
+              <a
+                href={CONTACTS.telegramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Telegram ${CONTACTS.telegramHandle}`}
+                title={`Telegram ${CONTACTS.telegramHandle}`}
+                className="flex h-8 w-8 items-center justify-center rounded-full border border-background/20 text-background/70 hover:border-primary hover:text-primary transition-colors"
+              >
+                <TelegramIcon className="h-4 w-4" />
+              </a>
+              <a
+                href={CONTACTS.facebookUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                title="Facebook"
+                className="flex h-8 w-8 items-center justify-center rounded-full border border-background/20 text-background/70 hover:border-primary hover:text-primary transition-colors"
+              >
+                <FacebookIcon className="h-4 w-4" />
+              </a>
+            </div>
+          </div>
+
           {/* Company + Social */}
           <div className="md:col-span-2">
             <h4 className="text-[10px] uppercase tracking-widest text-background/50 font-sans mb-3">
-              {t.footer.cols[0]?.h}
+              {t.footer.companyH}
             </h4>
             <ul className="space-y-1.5 text-xs">
-              {(t.footer.cols[0]?.l ?? []).map((label, i) => {
-                const targets = ["/#about", "/contact"];
-                return (
-                  <li key={label}>
-                    <a href={targets[i] ?? "/contact"} className="text-background/70 hover:text-primary transition-colors">
-                      {label}
-                    </a>
-                  </li>
-                );
-              })}
-              {(t.footer.cols[3]?.l ?? []).map((label) => {
-                const socials: Record<string, string> = {
-                  Facebook: "https://facebook.com",
-                  Instagram: "https://instagram.com",
-                };
-                return (
-                  <li key={label}>
-                    <a
-                      href={socials[label] ?? "#"}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-background/70 hover:text-primary transition-colors"
-                    >
-                      {label}
-                    </a>
-                  </li>
-                );
-              })}
+              <li>
+                <Link to="/#about" className="text-background/70 hover:text-primary transition-colors">
+                  {t.footer.companyAbout}
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-background/70 hover:text-primary transition-colors">
+                  {t.footer.companyContact}
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

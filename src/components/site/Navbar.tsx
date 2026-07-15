@@ -47,9 +47,9 @@ const Navbar = ({ variant = "overlay" }: NavbarProps) => {
         </nav>
         <div className="flex items-center gap-4">
           <LanguageSwitcher tone="light" />
-          <a href="/contact" className="hidden sm:inline-flex btn-light !py-3 !px-5 text-xs">
+          <Link to="/contact" className="hidden sm:inline-flex btn-light !py-3 !px-5 text-xs">
             {t.nav.cta}
-          </a>
+          </Link>
         </div>
       </div>
     </header>
