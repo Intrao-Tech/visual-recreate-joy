@@ -1,20 +1,14 @@
 import { describe, it, expect } from "vitest";
 import { render, within } from "@testing-library/react";
-import { MemoryRouter } from "react-router-dom";
+import { Providers } from "./providers";
 import Index from "@/pages/Index";
 import ServicesPage from "@/pages/ServicesPage";
 import ContactPage from "@/pages/ContactPage";
 import ResourcesPage from "@/pages/ResourcesPage";
 import NotFound from "@/pages/NotFound";
-import { LanguageProvider } from "@/i18n/LanguageContext";
 import { translations } from "@/i18n/translations";
 
-const renderPage = (ui: React.ReactNode) =>
-  render(
-    <MemoryRouter>
-      <LanguageProvider>{ui}</LanguageProvider>
-    </MemoryRouter>,
-  );
+const renderPage = (ui: React.ReactNode) => render(<Providers>{ui}</Providers>);
 
 /**
  * Every indexable page needs exactly one h1 — zero reads as thin content to

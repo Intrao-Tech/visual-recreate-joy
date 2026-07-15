@@ -4,9 +4,12 @@ import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
 import { useLang } from "@/i18n/LanguageContext";
 import { slugFor } from "@/i18n/catalogSlugs";
+import { useSeo } from "@/lib/useSeo";
 
 const ServicesPage = () => {
   const { t } = useLang();
+  useSeo(t.seo.services);
+
   return (
     <main className="min-h-screen bg-ink text-background">
       <Navbar />

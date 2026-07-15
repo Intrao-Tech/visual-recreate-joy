@@ -4,11 +4,20 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
 import { useLang } from "@/i18n/LanguageContext";
-import { positionForSlug, slugFor, legacySlugToSlug } from "@/i18n/catalogSlugs";
+import { positionForSlug, slugFor, legacySlugToSlug, type CatalogPosition } from "@/i18n/catalogSlugs";
 import { withLang } from "@/i18n/routing";
+import { useSeo } from "@/lib/useSeo";
+import { fillTemplate } from "@/lib/seo";
 
+/**
+ * Resolves the URL to a catalog position and redirects if it doesn't name one.
+ *
+ * Split from the view below so that every hook the view needs — including
+ * useSeo — runs unconditionally. Calling useSeo after these early returns would
+ * change the hook count between renders and break the Rules of Hooks.
+ */
 const ServiceDetail = () => {
-  const { t, lang } = useLang();
+  const { lang } = useLang();
   const { slug = "" } = useParams();
 
   // Old index-based URLs (/services/0-0) may be indexed or linked from elsewhere;
@@ -20,12 +29,32 @@ const ServiceDetail = () => {
   }
 
   const position = positionForSlug(slug);
-  const cat = position ? t.catalog.categories[position.ci] : undefined;
-  const item = position ? cat?.items[position.ii] : undefined;
+  if (!position) return <Navigate to={withLang("/services", lang)} replace />;
 
-  if (!position || !cat || !item) return <Navigate to={withLang("/services", lang)} replace />;
+  return <ServiceDetailView position={position} />;
+};
 
+const ServiceDetailView = ({ position }: { position: CatalogPosition }) => {
+  const { t, lang } = useLang();
   const { ci, ii } = position;
+  const cat = t.catalog.categories[ci];
+  const item = cat?.items[ii];
+
+  useSeo({
+    title: fillTemplate(t.seo.serviceTitle, { service: item?.title ?? "", category: cat?.title ?? "" }),
+    description: fillTemplate(t.seo.serviceDesc, {
+      copy: item?.copy ?? "",
+      price: item?.price ?? "",
+      category: cat?.title ?? "",
+      service: item?.title ?? "",
+    }),
+    type: "article",
+  });
+
+  // The slug table and the catalog are shape-checked against each other by
+  // catalogSlugs.test.ts, so this is unreachable in practice — but a bad index
+  // must not render a half-empty page.
+  if (!cat || !item) return <Navigate to={withLang("/services", lang)} replace />;
 
   // Related items from same category (excluding current)
   const related = cat.items.map((it, idx) => ({ it, idx })).filter((x) => x.idx !== ii);

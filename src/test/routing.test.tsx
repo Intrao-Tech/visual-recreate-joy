@@ -3,9 +3,9 @@ import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { MemoryRouter } from "react-router-dom";
+import { Providers } from "./providers";
 import { langFromPath, stripLangPrefix, withLang, DEFAULT_LANG } from "@/i18n/routing";
-import { LanguageProvider, useLang } from "@/i18n/LanguageContext";
+import { useLang } from "@/i18n/LanguageContext";
 import { AppRoutes } from "@/App";
 import { translations } from "@/i18n/translations";
 import { slugFor } from "@/i18n/catalogSlugs";
@@ -74,11 +74,9 @@ describe("withLang", () => {
 
 const renderAt = (path: string) =>
   render(
-    <MemoryRouter initialEntries={[path]}>
-      <LanguageProvider>
-        <AppRoutes />
-      </LanguageProvider>
-    </MemoryRouter>,
+    <Providers route={path}>
+      <AppRoutes />
+    </Providers>,
   );
 
 describe("every language has its own working URL", () => {
@@ -138,11 +136,9 @@ describe("every language has its own working URL", () => {
 describe("language switcher", () => {
   it("links to the same page in the other languages, not to the homepage", () => {
     const { container } = render(
-      <MemoryRouter initialEntries={["/services"]}>
-        <LanguageProvider>
-          <LanguageSwitcher />
-        </LanguageProvider>
-      </MemoryRouter>,
+      <Providers route="/services">
+        <LanguageSwitcher />
+      </Providers>,
     );
     const hrefs = Array.from(container.querySelectorAll("a")).map((a) => a.getAttribute("href"));
     expect(hrefs).toEqual(["/services", "/en/services", "/ru/services"]);
@@ -150,11 +146,9 @@ describe("language switcher", () => {
 
   it("marks each link with its hreflang so the alternates are machine-readable", () => {
     const { container } = render(
-      <MemoryRouter initialEntries={["/"]}>
-        <LanguageProvider>
-          <LanguageSwitcher />
-        </LanguageProvider>
-      </MemoryRouter>,
+      <Providers route="/">
+        <LanguageSwitcher />
+      </Providers>,
     );
     expect(
       Array.from(container.querySelectorAll("a")).map((a) => a.getAttribute("hreflang")),
@@ -168,12 +162,10 @@ describe("language switcher", () => {
       return <span data-testid="lang">{lang}</span>;
     };
     render(
-      <MemoryRouter initialEntries={["/services"]}>
-        <LanguageProvider>
-          <LanguageSwitcher />
-          <Probe />
-        </LanguageProvider>
-      </MemoryRouter>,
+      <Providers route="/services">
+        <LanguageSwitcher />
+        <Probe />
+      </Providers>,
     );
     expect(screen.getByTestId("lang")).toHaveTextContent("uk");
     await user.click(screen.getByRole("link", { name: "Switch to EN" }));

@@ -5,10 +5,15 @@ import { ArrowUpRight } from "lucide-react";
 import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
 import { useLang } from "@/i18n/LanguageContext";
+import { useSeo } from "@/lib/useSeo";
 
 const NotFound = () => {
   const { t } = useLang();
   const location = useLocation();
+
+  // Hosting still answers 200 here (see the prerender/hosting work), so the
+  // noindex is what actually keeps missing pages out of the index for now.
+  useSeo({ ...t.seo.notFound, noindex: true });
 
   useEffect(() => {
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);

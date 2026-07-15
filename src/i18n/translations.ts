@@ -66,6 +66,26 @@ export type Dict = {
     crafted: string;
   };
   notFound: { title: string; desc: string; button: string };
+  /**
+   * Per-page <title> and meta description. Every page shared one title and one
+   * description before this existed, so search engines had nothing to tell the
+   * pages apart in results.
+   *
+   * `titleSuffix` is appended by the SEO helper — page copy here should not
+   * repeat the brand name. `serviceTitle`/`serviceDesc` are templates for the
+   * 26 service pages: {service} is the item title, {category} its category,
+   * {price} its price string.
+   */
+  seo: {
+    titleSuffix: string;
+    home: { title: string; description: string };
+    services: { title: string; description: string };
+    contact: { title: string; description: string };
+    resources: { title: string; description: string };
+    notFound: { title: string; description: string };
+    serviceTitle: string;
+    serviceDesc: string;
+  };
 };
 
 const en: Dict = {
@@ -242,6 +262,35 @@ const en: Dict = {
     title: "This page doesn’t exist",
     desc: "The link may be outdated or mistyped. Let’s get you back on track.",
     button: "Back to home",
+  },
+  seo: {
+    titleSuffix: " | ANGL Consulting",
+    home: {
+      title: "Accounting and tax consulting for business",
+      description:
+        "Bookkeeping, tax structuring, audit support and management accounting for Ukrainian business. Transparent pricing, free first consultation.",
+    },
+    services: {
+      title: "Services and pricing",
+      description:
+        "ANGL Consulting services: consultations, management accounting, tax consulting, financial monitoring, training and entering the German market. Prices listed.",
+    },
+    contact: {
+      title: "Contact us",
+      description:
+        "Get in touch with ANGL Consulting: leave a request, call, or write on Telegram. We reply within the working day.",
+    },
+    resources: {
+      title: "Resources and guides for business",
+      description:
+        "Articles, guides and checklists on bookkeeping, taxes and running a business in Ukraine, from the ANGL Consulting team.",
+    },
+    notFound: {
+      title: "Page not found",
+      description: "This page doesn’t exist. Browse our services or get in touch.",
+    },
+    serviceTitle: "{service}",
+    serviceDesc: "{copy} Price: {price}.",
   },
 };
 
@@ -420,6 +469,35 @@ const uk: Dict = {
     desc: "Можливо, посилання застаріло або в адресі є помилка. Повернімося на головну.",
     button: "На головну",
   },
+  seo: {
+    titleSuffix: " | ANGL Consulting",
+    home: {
+      title: "Бухгалтерські послуги та податковий консалтинг",
+      description:
+        "Ведення обліку, податкове структурування, супровід перевірок та управлінський облік для українського бізнесу. Прозорі ціни, безкоштовна перша консультація.",
+    },
+    services: {
+      title: "Послуги та ціни",
+      description:
+        "Каталог послуг ANGL Consulting: консультації, управлінський облік, податковий консалтинг, фінмоніторинг, навчання та вихід на ринок Німеччини. Ціни вказані.",
+    },
+    contact: {
+      title: "Контакти",
+      description:
+        "Звʼяжіться з ANGL Consulting: залиште заявку, зателефонуйте або напишіть у Telegram. Відповідаємо протягом робочого дня.",
+    },
+    resources: {
+      title: "Ресурси та гайди для бізнесу",
+      description:
+        "Статті, гайди та чеклісти з бухгалтерського обліку, податків і ведення бізнесу в Україні від команди ANGL Consulting.",
+    },
+    notFound: {
+      title: "Сторінку не знайдено",
+      description: "Такої сторінки не існує. Перегляньте наші послуги або звʼяжіться з нами.",
+    },
+    serviceTitle: "{service}",
+    serviceDesc: "{copy} Вартість: {price}.",
+  },
 };
 
 const ru: Dict = {
@@ -596,6 +674,35 @@ const ru: Dict = {
     title: "Такой страницы не существует",
     desc: "Возможно, ссылка устарела или в адресе есть ошибка. Вернёмся на главную.",
     button: "На главную",
+  },
+  seo: {
+    titleSuffix: " | ANGL Consulting",
+    home: {
+      title: "Бухгалтерские услуги и налоговый консалтинг",
+      description:
+        "Ведение учёта, налоговое структурирование, сопровождение проверок и управленческий учёт для бизнеса. Прозрачные цены, бесплатная консультация.",
+    },
+    services: {
+      title: "Услуги и цены",
+      description:
+        "Каталог услуг ANGL Consulting: консультации, управленческий учёт, налоговый консалтинг, финмониторинг, обучение и выход на рынок Германии. Цены указаны.",
+    },
+    contact: {
+      title: "Контакты",
+      description:
+        "Свяжитесь с ANGL Consulting: оставьте заявку, позвоните или напишите в Telegram. Отвечаем в течение рабочего дня.",
+    },
+    resources: {
+      title: "Ресурсы и гайды для бизнеса",
+      description:
+        "Статьи, гайды и чек-листы по бухгалтерскому учёту, налогам и ведению бизнеса в Украине от команды ANGL Consulting.",
+    },
+    notFound: {
+      title: "Страница не найдена",
+      description: "Такой страницы не существует. Посмотрите наши услуги или свяжитесь с нами.",
+    },
+    serviceTitle: "{service}",
+    serviceDesc: "{copy} Стоимость: {price}.",
   },
 };
 
