@@ -3,30 +3,26 @@ import ServicesPage from "./pages/ServicesPage.tsx";
 import ServiceDetail from "./pages/ServiceDetail.tsx";
 import ContactPage from "./pages/ContactPage.tsx";
 import ResourcesPage from "./pages/ResourcesPage.tsx";
+import { routePaths } from "./routePaths";
 
 /**
- * The site's routes, language-agnostic. `path` has no leading slash and no
- * language prefix; App builds the Ukrainian (bare) and /en//ru/ trees from
- * this one list, and the sitemap generator reads it so the two can't disagree
- * about which pages exist.
+ * Binds each route path to its page. The path list lives in routePaths.ts so the
+ * sitemap generator can read it without importing React components.
  */
-export type SiteRoute = {
-  /** Language-agnostic path, no leading slash. "" is the home page. */
-  path: string;
-  element: JSX.Element;
-  /** Dynamic routes are expanded per-slug by the sitemap; static ones are listed as-is. */
-  dynamic?: boolean;
+const elements: Record<string, JSX.Element> = {
+  "": <Index />,
+  services: <ServicesPage />,
+  "services/:slug": <ServiceDetail />,
+  contact: <ContactPage />,
+  resources: <ResourcesPage />,
 };
 
-export const siteRoutes: SiteRoute[] = [
-  { path: "", element: <Index /> },
-  { path: "services", element: <ServicesPage /> },
-  { path: "services/:slug", element: <ServiceDetail />, dynamic: true },
-  { path: "contact", element: <ContactPage /> },
-  { path: "resources", element: <ResourcesPage /> },
-];
+export type SiteRoute = { path: string; element: JSX.Element };
 
-/** Static (non-parameterised) paths, with a leading slash. */
-export const staticPaths: string[] = siteRoutes
-  .filter((r) => !r.dynamic)
-  .map((r) => (r.path === "" ? "/" : `/${r.path}`));
+export const siteRoutes: SiteRoute[] = routePaths.map((r) => {
+  const element = elements[r.path];
+  if (!element) throw new Error(`routes.tsx: no page bound to route "${r.path}"`);
+  return { path: r.path, element };
+});
+
+export { staticPaths } from "./routePaths";

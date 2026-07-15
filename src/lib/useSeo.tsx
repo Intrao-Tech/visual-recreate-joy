@@ -42,11 +42,12 @@ export const useSeo = ({ title, description, type = "website", noindex = false }
   const fullTitle = `${title}${t.seo.titleSuffix}`;
   const desc = clampDescription(description);
 
-  // A noindex page gets no canonical and no hreflang: a canonical asks search
-  // engines to index this URL while noindex tells them not to, and Google
-  // discards contradictory pairs rather than guessing. 404s are also not part
-  // of any language cluster — there is no Ukrainian "equivalent" of a URL that
-  // doesn't exist.
+  // A noindex page gets no canonical and no hreflang. Google's guidance is not
+  // to mix noindex with rel=canonical: faced with both, it tends to honour the
+  // canonical *over* the noindex — so a self-canonical here would argue for
+  // indexing the very 404 we are trying to keep out of the index. 404s are also
+  // not part of any language cluster: there is no Ukrainian equivalent of a URL
+  // that doesn't exist.
   const indexingLinks = noindex
     ? []
     : [

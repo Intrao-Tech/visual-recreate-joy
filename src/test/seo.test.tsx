@@ -5,7 +5,6 @@ import { AppRoutes } from "@/App";
 import { translations } from "@/i18n/translations";
 import { slugFor, allServiceSlugs } from "@/i18n/catalogSlugs";
 import { SITE_URL, absoluteUrl, alternatesFor, clampDescription, fillTemplate } from "@/lib/seo";
-import { withLang } from "@/i18n/routing";
 
 /** Reads what actually landed in <head> after render. */
 const head = () => ({
@@ -282,12 +281,46 @@ describe("seo helpers", () => {
     }
   });
 
-  it("alternatesFor matches withLang for every language", () => {
-    for (const path of ["/", "/services", "/contact"]) {
-      for (const lang of ["uk", "en", "ru"] as const) {
-        const alt = alternatesFor(path).find((a) => a.hreflang === lang);
-        expect(alt?.href).toBe(absoluteUrl(withLang(path, lang)));
-      }
+  it("alternatesFor produces the exact URLs the site serves", () => {
+    // Hardcoded rather than recomputed with withLang/absoluteUrl — asserting
+    // against the same helpers the function uses would pass by construction.
+    expect(alternatesFor("/contact")).toEqual([
+      { hreflang: "uk", href: "https://angl-consulting.com/contact" },
+      { hreflang: "en", href: "https://angl-consulting.com/en/contact" },
+      { hreflang: "ru", href: "https://angl-consulting.com/ru/contact" },
+      { hreflang: "x-default", href: "https://angl-consulting.com/contact" },
+    ]);
+    expect(alternatesFor("/")).toEqual([
+      { hreflang: "uk", href: "https://angl-consulting.com/" },
+      { hreflang: "en", href: "https://angl-consulting.com/en" },
+      { hreflang: "ru", href: "https://angl-consulting.com/ru" },
+      { hreflang: "x-default", href: "https://angl-consulting.com/" },
+    ]);
+  });
+
+  it("absoluteUrl collapses leading slashes rather than emitting host//path", () => {
+    expect(absoluteUrl("//services")).toBe("https://angl-consulting.com/services");
+    expect(absoluteUrl("services")).toBe("https://angl-consulting.com/services");
+  });
+
+  it("keeps the price in every service description, whatever gets truncated", () => {
+    // The price led to the description being cut off before it: word-boundary
+    // clamping dropped it in 8 of 78 cases, twice leaving a bare "Вартість…"
+    // label with no value. Price now leads, so only prose can be lost.
+    for (const lang of ["uk", "en", "ru"] as const) {
+      translations[lang].catalog.categories.forEach((cat, ci) =>
+        cat.items.forEach((item, ii) => {
+          const full = fillTemplate(translations[lang].seo.serviceDesc, {
+            copy: item.copy,
+            price: item.price,
+            category: cat.title,
+            service: item.title,
+          });
+          const out = clampDescription(full);
+          expect(out, `${lang} ${ci}-${ii} lost its price: ${out}`).toContain(item.price);
+          expect(out.length).toBeLessThanOrEqual(160);
+        }),
+      );
     }
   });
 });

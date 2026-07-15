@@ -1,5 +1,7 @@
-import type { Lang } from "@/i18n/translations";
-import { LANGS, DEFAULT_LANG, withLang } from "@/i18n/routing";
+// Relative, not "@/"-aliased: the sitemap plugin in vite.config.ts imports this
+// module, and Vite bundles its own config before the alias config applies.
+import type { Lang } from "../i18n/translations";
+import { LANGS, DEFAULT_LANG, withLang } from "../i18n/routing";
 
 /**
  * The production origin, hardcoded on purpose.
@@ -18,9 +20,11 @@ export const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 
 /** Absolute URL for a site-absolute path. */
 export const absoluteUrl = (path: string): string => {
-  const clean = path.startsWith("/") ? path : `/${path}`;
+  // Collapse leading slashes: "//services" would otherwise yield a
+  // protocol-relative-looking "https://host//services".
+  const clean = `/${path.replace(/^\/+/, "")}`;
   // Trailing slash only on the root, so /services and /services/ don't become two URLs.
-  return `${SITE_URL}${clean === "/" ? "/" : clean.replace(/\/$/, "")}`;
+  return `${SITE_URL}${clean === "/" ? "/" : clean.replace(/\/+$/, "")}`;
 };
 
 /** BCP 47 codes for hreflang. `uk`/`en`/`ru` are already valid language subtags. */
@@ -47,13 +51,25 @@ export const fillTemplate = (template: string, values: Record<string, string>): 
 /**
  * Meta descriptions get truncated in results around ~160 characters. Cut on a
  * word boundary so the snippet doesn't end mid-word.
+ *
+ * Note for anyone writing serviceDesc-style templates: this cuts from the end,
+ * so whatever you put last is what gets dropped. Lead with the facts that must
+ * survive (price), not with prose.
  */
+/**
+ * If the last space falls before this fraction of the limit, the text is one
+ * very long token and there is no sensible word boundary to cut on — take the
+ * hard cut rather than throw most of the snippet away.
+ */
+const MIN_WORD_BOUNDARY_RATIO = 0.6;
+
 export const clampDescription = (text: string, max = 160): string => {
   const flat = text.replace(/\s+/g, " ").trim();
   if (flat.length <= max) return flat;
   const cut = flat.slice(0, max - 1);
   const lastSpace = cut.lastIndexOf(" ");
-  return `${(lastSpace > max * 0.6 ? cut.slice(0, lastSpace) : cut).replace(/[.,;:!?—-]$/, "")}…`;
+  const body = lastSpace > max * MIN_WORD_BOUNDARY_RATIO ? cut.slice(0, lastSpace) : cut;
+  return `${body.replace(/[.,;:!?—-]+$/, "")}…`;
 };
 
 /** og:locale wants a territory, e.g. uk_UA. */

@@ -290,7 +290,7 @@ const en: Dict = {
       description: "This page doesn’t exist. Browse our services or get in touch.",
     },
     serviceTitle: "{service}",
-    serviceDesc: "{copy} Price: {price}.",
+    serviceDesc: "Price: {price}. {copy}",
   },
 };
 
@@ -496,7 +496,7 @@ const uk: Dict = {
       description: "Такої сторінки не існує. Перегляньте наші послуги або звʼяжіться з нами.",
     },
     serviceTitle: "{service}",
-    serviceDesc: "{copy} Вартість: {price}.",
+    serviceDesc: "Вартість: {price}. {copy}",
   },
 };
 
@@ -702,7 +702,7 @@ const ru: Dict = {
       description: "Такой страницы не существует. Посмотрите наши услуги или свяжитесь с нами.",
     },
     serviceTitle: "{service}",
-    serviceDesc: "{copy} Стоимость: {price}.",
+    serviceDesc: "Стоимость: {price}. {copy}",
   },
 };
 
