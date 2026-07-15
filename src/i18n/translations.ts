@@ -1,7 +1,7 @@
 export type Lang = "uk" | "en" | "ru";
 
 export type Dict = {
-  nav: { home: string; about: string; cases: string; pricing: string; contact: string; cta: string };
+  nav: { home: string; about: string; services: string; resources: string; contact: string; cta: string; menu: string; close: string };
   hero: {
     slides: { eyebrow: string; title: string }[];
     cta: string;
@@ -43,9 +43,7 @@ export type Dict = {
     titlePre: string;
     titleItalic: string;
     titlePost: string;
-    score: string;
-    quote: string;
-    reviews: { name: string; role: string }[];
+    reviews: { name: string; quote: string }[];
   };
   resources: {
     pill: string;
@@ -67,10 +65,11 @@ export type Dict = {
     rights: string;
     crafted: string;
   };
+  notFound: { title: string; desc: string; button: string };
 };
 
 const en: Dict = {
-  nav: { home: "Home", about: "About", cases: "Services", pricing: "Resources", contact: "Contact", cta: "Free Consultation" },
+  nav: { home: "Home", about: "About", services: "Services", resources: "Resources", contact: "Contact", cta: "Free Consultation", menu: "Open menu", close: "Close menu" },
   hero: {
     slides: [
       { eyebrow: "Bookkeeping you can trust", title: "Focus on your business —\nwe'll handle the books." },
@@ -196,12 +195,22 @@ const en: Dict = {
     titlePre: "Trusted by",
     titleItalic: "300+ businesses",
     titlePost: "across Ukraine",
-    score: "Score on TrustPilot",
-    quote: "I was skeptical at first, but ANGL exceeded my expectations. They handle everything — from registration to monthly reports — and I finally feel calm about the financial side of my business.",
     reviews: [
-      { name: "Ralph Edwards", role: "Café owner" },
-      { name: "Esther Howard", role: "Online retailer" },
-      { name: "Dianne Russell", role: "Beauty salon owner" },
+      {
+        name: "Inokentii Cherepanov",
+        quote:
+          "I was skeptical at first, but they took the whole financial side off my hands — from registration to monthly reports. I open the reports once a month and just see that everything is in order.",
+      },
+      {
+        name: "Volodymyr Miniailo",
+        quote:
+          "I used to spend a couple of days a month on paperwork and still lose sleep over the tax office. Now I send over the documents and get back a clear answer on what to pay and when.",
+      },
+      {
+        name: "Svitlana Ustianska",
+        quote:
+          "They helped me switch tax systems without a single fine and explained every step in plain language. That was the first time accounting stopped feeling like something I had to be afraid of.",
+      },
     ],
   },
   resources: {
@@ -229,10 +238,15 @@ const en: Dict = {
     rights: "© 2026 ANGL Consulting. All Rights Reserved",
     crafted: "Crafted with care.",
   },
+  notFound: {
+    title: "This page doesn’t exist",
+    desc: "The link may be outdated or mistyped. Let’s get you back on track.",
+    button: "Back to home",
+  },
 };
 
 const uk: Dict = {
-  nav: { home: "Головна", about: "Про нас", cases: "Послуги", pricing: "Ресурси", contact: "Контакти", cta: "Безкоштовна консультація" },
+  nav: { home: "Головна", about: "Про нас", services: "Послуги", resources: "Ресурси", contact: "Контакти", cta: "Безкоштовна консультація", menu: "Відкрити меню", close: "Закрити меню" },
   hero: {
     slides: [
       { eyebrow: "Бухгалтерія, якій можна довіряти", title: "Зосередьтесь на бізнесі —\nоблік беремо на себе." },
@@ -358,12 +372,22 @@ const uk: Dict = {
     titlePre: "Нам довіряють понад",
     titleItalic: "300 бізнесів",
     titlePost: "по всій Україні",
-    score: "Оцінка на TrustPilot",
-    quote: "Спочатку я сумнівався, але ANGL перевершили мої очікування. Вони беруть на себе все — від реєстрації до місячних звітів — і я нарешті спокійний за фінансовий бік свого бізнесу.",
     reviews: [
-      { name: "Ralph Edwards", role: "Власник кафе" },
-      { name: "Esther Howard", role: "Онлайн-продавець" },
-      { name: "Dianne Russell", role: "Власниця салону краси" },
+      {
+        name: "Черепанов Інокентій",
+        quote:
+          "Спочатку я сумнівався, але хлопці зняли з мене весь фінансовий бік — від реєстрації до місячних звітів. Раз на місяць відкриваю звіт і просто бачу, що все в порядку.",
+      },
+      {
+        name: "Володимир Міняйло",
+        quote:
+          "Раніше витрачав пару днів на місяць на папери й усе одно не спав через податкову. Тепер передаю документи й отримую чітку відповідь, що і коли платити.",
+      },
+      {
+        name: "Світлана Устянська",
+        quote:
+          "Допомогли перейти на іншу систему оподаткування без жодного штрафу і пояснили кожен крок людською мовою. Це вперше, коли бухгалтерія перестала мене лякати.",
+      },
     ],
   },
   resources: {
@@ -391,10 +415,15 @@ const uk: Dict = {
     rights: "© 2026 ANGL Consulting. Усі права захищені",
     crafted: "Зроблено з турботою.",
   },
+  notFound: {
+    title: "Такої сторінки не існує",
+    desc: "Можливо, посилання застаріло або в адресі є помилка. Повернімося на головну.",
+    button: "На головну",
+  },
 };
 
 const ru: Dict = {
-  nav: { home: "Главная", about: "О нас", cases: "Услуги", pricing: "Ресурсы", contact: "Контакты", cta: "Бесплатная консультация" },
+  nav: { home: "Главная", about: "О нас", services: "Услуги", resources: "Ресурсы", contact: "Контакты", cta: "Бесплатная консультация", menu: "Открыть меню", close: "Закрыть меню" },
   hero: {
     slides: [
       { eyebrow: "Бухгалтерия, которой можно доверять", title: "Сосредоточьтесь на бизнесе —\nучёт берём на себя." },
@@ -520,12 +549,22 @@ const ru: Dict = {
     titlePre: "Нам доверяют более",
     titleItalic: "300 бизнесов",
     titlePost: "по всей Украине",
-    score: "Оценка на TrustPilot",
-    quote: "Сначала я сомневался, но ANGL превзошли мои ожидания. Они берут на себя всё — от регистрации до месячных отчётов — и я наконец спокоен за финансовую сторону своего бизнеса.",
     reviews: [
-      { name: "Ralph Edwards", role: "Владелец кафе" },
-      { name: "Esther Howard", role: "Онлайн-продавец" },
-      { name: "Dianne Russell", role: "Владелица салона красоты" },
+      {
+        name: "Черепанов Иннокентий",
+        quote:
+          "Сначала я сомневался, но ребята сняли с меня всю финансовую сторону — от регистрации до месячных отчётов. Раз в месяц открываю отчёт и просто вижу, что всё в порядке.",
+      },
+      {
+        name: "Владимир Миняйло",
+        quote:
+          "Раньше тратил пару дней в месяц на бумаги и всё равно не спал из-за налоговой. Теперь передаю документы и получаю чёткий ответ, что и когда платить.",
+      },
+      {
+        name: "Светлана Устянская",
+        quote:
+          "Помогли перейти на другую систему налогообложения без единого штрафа и объяснили каждый шаг человеческим языком. Это первый раз, когда бухгалтерия перестала меня пугать.",
+      },
     ],
   },
   resources: {
@@ -552,6 +591,11 @@ const ru: Dict = {
     contactH: "Контакты",
     rights: "© 2026 ANGL Consulting. Все права защищены",
     crafted: "Сделано с заботой.",
+  },
+  notFound: {
+    title: "Такой страницы не существует",
+    desc: "Возможно, ссылка устарела или в адресе есть ошибка. Вернёмся на главную.",
+    button: "На главную",
   },
 };
 

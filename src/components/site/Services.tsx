@@ -4,9 +4,14 @@ import s1 from "@/assets/service-1.jpg";
 import s2 from "@/assets/service-2.jpg";
 import s3 from "@/assets/service-3.jpg";
 import s4 from "@/assets/service-4.jpg";
+import s5 from "@/assets/hero-1.jpg";
+import s6 from "@/assets/hero-2.jpg";
+import s7 from "@/assets/office-clean-2026.jpg";
+import s8 from "@/assets/about.jpg";
 import { useLang } from "@/i18n/LanguageContext";
 
-const imgs = [s1, s2, s3, s4, s1, s2, s3];
+/** One image per catalog category — kept in sync by the catalog-images test. */
+const imgs = [s1, s2, s3, s4, s5, s6, s7, s8];
 
 const Services = () => {
   const { t } = useLang();
@@ -44,7 +49,7 @@ const Services = () => {
                 </div>
                 <div className="mt-5 aspect-[4/3] overflow-hidden rounded-2xl">
                   <img
-                    src={imgs[ci % imgs.length]}
+                    src={imgs[ci]}
                     alt={cat.title}
                     loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"

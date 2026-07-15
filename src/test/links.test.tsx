@@ -1,11 +1,18 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
-import { MemoryRouter } from "react-router-dom";
+import { MemoryRouter, Route, Routes } from "react-router-dom";
+import userEvent from "@testing-library/user-event";
 import Footer from "@/components/site/Footer";
 import Contact from "@/components/site/Contact";
 import Navbar from "@/components/site/Navbar";
 import Resources from "@/components/site/Resources";
+import Services from "@/components/site/Services";
+import Steps from "@/components/site/Steps";
+import ServiceDetail from "@/pages/ServiceDetail";
+import ServicesPage from "@/pages/ServicesPage";
+import NotFound from "@/pages/NotFound";
 import { LanguageProvider } from "@/i18n/LanguageContext";
+import { translations } from "@/i18n/translations";
 import { CONTACTS } from "@/lib/contacts";
 
 const renderAt = (ui: React.ReactNode) =>
@@ -110,5 +117,123 @@ describe("contact links", () => {
     expect(h).toContain(`tel:${CONTACTS.phone}`);
     expect(h).toContain(CONTACTS.telegramUrl);
     expect(h).toContain(CONTACTS.facebookUrl);
+  });
+});
+
+describe("mobile navigation", () => {
+  it("reaches every destination on a phone, where the desktop nav is hidden", async () => {
+    const user = userEvent.setup();
+    const { container } = renderAt(<Navbar />);
+
+    // Nothing is open until the user asks for it.
+    expect(container.querySelector("#mobile-nav")).toBeNull();
+
+    await user.click(screen.getByRole("button", { name: translations.uk.nav.menu }));
+    const panel = container.querySelector("#mobile-nav");
+    expect(panel, "hamburger did not open a nav panel").not.toBeNull();
+
+    // The panel must carry the full destination set, not a subset.
+    expect(hrefs(panel as HTMLElement)).toEqual(["/", "/#about", "/services", "/resources", "/contact", "/contact"]);
+
+    await user.click(screen.getByRole("button", { name: translations.uk.nav.close }));
+    expect(container.querySelector("#mobile-nav")).toBeNull();
+  });
+
+  it("labels the toggle for screen readers in the active language", async () => {
+    const user = userEvent.setup();
+    renderAt(<Navbar />);
+    const toggle = screen.getByRole("button", { name: translations.uk.nav.menu });
+    expect(toggle).toHaveAttribute("aria-expanded", "false");
+    expect(toggle).toHaveAttribute("aria-controls", "mobile-nav");
+    await user.click(toggle);
+    expect(toggle).toHaveAttribute("aria-expanded", "true");
+  });
+});
+
+describe("service detail slugs", () => {
+  const renderSlug = (slug: string) =>
+    render(
+      <MemoryRouter initialEntries={[`/services/${slug}`]}>
+        <LanguageProvider>
+          <Routes>
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/services/:slug" element={<ServiceDetail />} />
+          </Routes>
+        </LanguageProvider>
+      </MemoryRouter>,
+    );
+
+  it("renders the addressed service for a canonical slug", () => {
+    renderSlug("1-2");
+    const { title } = translations.uk.catalog.categories[1].items[2];
+    expect(screen.getByRole("heading", { level: 1, name: title })).toBeInTheDocument();
+  });
+
+  it("redirects non-canonical spellings instead of serving duplicate pages", () => {
+    // Each of these used to resolve to a real page, giving one service many URLs.
+    for (const slug of ["-1", "01-02", "1.0-2", "1-2-3", "1e0-2", "%201-2", "1", "abc", "8-0", "7-5"]) {
+      const { container, unmount } = renderSlug(slug);
+      // The catalog listing renders category anchors; a detail page never does.
+      expect(container.querySelector("#cat-0"), `/services/${slug} served a detail page`).not.toBeNull();
+      unmount();
+    }
+  });
+
+  it("every catalog entry has a reachable detail page", () => {
+    translations.uk.catalog.categories.forEach((cat, ci) =>
+      cat.items.forEach((item, ii) => {
+        const { unmount } = renderSlug(`${ci}-${ii}`);
+        expect(screen.getByRole("heading", { level: 1, name: item.title })).toBeInTheDocument();
+        unmount();
+      }),
+    );
+  });
+});
+
+describe("404 page", () => {
+  it("is translated and keeps the visitor inside the SPA", () => {
+    const { container } = renderAt(<NotFound />);
+    expect(screen.getByRole("heading", { level: 1, name: translations.uk.notFound.title })).toBeInTheDocument();
+    // Not the English scaffold copy.
+    expect(container.textContent).not.toMatch(/Oops! Page not found|Return to Home/);
+    // Navbar + Footer present, so it is not a dead end.
+    expect(hrefs(container)).toContain("/services");
+    expect(hrefs(container)).toContain(`mailto:${CONTACTS.email}`);
+  });
+});
+
+describe("imagery", () => {
+  it("never renders an image without a source", () => {
+    // Guards the image arrays that run parallel to translated content.
+    for (const ui of [<Services />, <Steps />, <Resources />]) {
+      const { container, unmount } = render(
+        <MemoryRouter>
+          <LanguageProvider>{ui}</LanguageProvider>
+        </MemoryRouter>,
+      );
+      const imgs = Array.from(container.querySelectorAll("img"));
+      expect(imgs.length).toBeGreaterThan(0);
+      for (const img of imgs) {
+        expect(img.getAttribute("src"), `image "${img.getAttribute("alt")}" has no src`).toBeTruthy();
+      }
+      unmount();
+    }
+  });
+
+  it("gives every catalog category its own image", () => {
+    const { container } = render(
+      <MemoryRouter>
+        <LanguageProvider>
+          <Services />
+        </LanguageProvider>
+      </MemoryRouter>,
+    );
+    // The carousel duplicates the list, so dedupe by alt text before comparing.
+    const byAlt = new Map(
+      Array.from(container.querySelectorAll("img")).map((i) => [i.getAttribute("alt"), i.getAttribute("src")]),
+    );
+    const srcs = translations.uk.catalog.categories.map((c) => byAlt.get(c.title));
+    expect(srcs.every(Boolean), "a category rendered with no image").toBe(true);
+    expect(new Set(srcs).size, "two categories share an image").toBe(srcs.length);
   });
 });

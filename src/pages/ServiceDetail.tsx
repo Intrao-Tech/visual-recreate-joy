@@ -1,15 +1,18 @@
 import { Link, useParams, Navigate } from "react-router-dom";
-import { ArrowLeft, ArrowUpRight, Check } from "lucide-react";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
 import { useLang } from "@/i18n/LanguageContext";
 
+/** Only canonical `<category>-<item>` slugs resolve, so each service has exactly one URL. */
+const SLUG = /^(0|[1-9]\d*)-(0|[1-9]\d*)$/;
+
 const ServiceDetail = () => {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const { slug } = useParams();
-  const [ciStr, iiStr] = (slug || "").split("-");
-  const ci = Number(ciStr);
-  const ii = Number(iiStr);
+  const match = SLUG.exec(slug ?? "");
+  const ci = match ? Number(match[1]) : -1;
+  const ii = match ? Number(match[2]) : -1;
   const cat = t.catalog.categories[ci];
   const item = cat?.items[ii];
 
@@ -22,8 +25,6 @@ const ServiceDetail = () => {
   const moreLabel = { uk: "Інші послуги категорії", en: "More services in this category", ru: "Другие услуги категории" };
   const includesLabel = { uk: "Що входить", en: "What's included", ru: "Что входит" };
   const priceLabel = { uk: "Вартість", en: "Price", ru: "Стоимость" };
-
-  const lang = t.nav.home === "Home" ? "en" : t.nav.home === "Главная" ? "ru" : "uk";
 
   return (
     <main className="min-h-screen bg-ink text-background">
