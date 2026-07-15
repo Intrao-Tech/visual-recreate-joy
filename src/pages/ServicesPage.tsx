@@ -5,10 +5,20 @@ import Footer from "@/components/site/Footer";
 import { useLang } from "@/i18n/LanguageContext";
 import { slugFor } from "@/i18n/catalogSlugs";
 import { useSeo } from "@/lib/useSeo";
+import { useJsonLd } from "@/lib/useJsonLd";
+import { breadcrumbLd, organizationLd } from "@/lib/jsonLd";
+import { withLang } from "@/i18n/routing";
 
 const ServicesPage = () => {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   useSeo(t.seo.services);
+  useJsonLd([
+    organizationLd(),
+    breadcrumbLd([
+      { name: t.nav.home, path: withLang("/", lang) },
+      { name: t.nav.services, path: withLang("/services", lang) },
+    ]),
+  ]);
 
   return (
     <main className="min-h-screen bg-ink text-background">

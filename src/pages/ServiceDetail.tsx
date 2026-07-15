@@ -7,7 +7,9 @@ import { useLang } from "@/i18n/LanguageContext";
 import { positionForSlug, slugFor, legacySlugToSlug, type CatalogPosition } from "@/i18n/catalogSlugs";
 import { withLang } from "@/i18n/routing";
 import { useSeo } from "@/lib/useSeo";
-import { fillTemplate } from "@/lib/seo";
+import { fillTemplate, absoluteUrl } from "@/lib/seo";
+import { useJsonLd } from "@/lib/useJsonLd";
+import { serviceLd, breadcrumbLd, organizationLd } from "@/lib/jsonLd";
 
 /**
  * Resolves the URL to a catalog position and redirects if it doesn't name one.
@@ -39,6 +41,8 @@ const ServiceDetailView = ({ position }: { position: CatalogPosition }) => {
   const { ci, ii } = position;
   const cat = t.catalog.categories[ci];
   const item = cat?.items[ii];
+  const slug = slugFor(ci, ii) as string;
+  const url = absoluteUrl(withLang(`/services/${slug}`, lang));
 
   useSeo({
     title: fillTemplate(t.seo.serviceTitle, { service: item?.title ?? "", category: cat?.title ?? "" }),
@@ -50,6 +54,20 @@ const ServiceDetailView = ({ position }: { position: CatalogPosition }) => {
     }),
     type: "article",
   });
+
+  useJsonLd(
+    item && cat
+      ? [
+          organizationLd(),
+          serviceLd(item, cat.title, url),
+          breadcrumbLd([
+            { name: t.nav.home, path: withLang("/", lang) },
+            { name: t.nav.services, path: withLang("/services", lang) },
+            { name: item.title, path: withLang(`/services/${slug}`, lang) },
+          ]),
+        ]
+      : [],
+  );
 
   // The slug table and the catalog are shape-checked against each other by
   // catalogSlugs.test.ts, so this is unreachable in practice — but a bad index
