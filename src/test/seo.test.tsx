@@ -207,6 +207,37 @@ describe("social tags", () => {
   });
 });
 
+describe("the static tags in index.html", () => {
+  it("are replaced by the per-page ones, not duplicated alongside them", async () => {
+    // index.html still ships fallback tags for crawlers that read the raw file.
+    // If unhead appended instead of replacing, every page would serve two
+    // conflicting og:title tags and the crawler would pick arbitrarily.
+    document.head.innerHTML = `
+      <title>ANGL Consulting — Бухгалтерські послуги</title>
+      <meta name="description" content="STATIC">
+      <meta property="og:title" content="STATIC">
+      <meta property="og:description" content="STATIC">
+      <meta property="og:url" content="https://angl-consulting.com/">
+      <meta name="twitter:title" content="STATIC">
+    `;
+    await renderAt("/services");
+
+    for (const sel of [
+      'meta[name="description"]',
+      'meta[property="og:title"]',
+      'meta[property="og:description"]',
+      'meta[property="og:url"]',
+      'meta[name="twitter:title"]',
+    ]) {
+      expect(document.head.querySelectorAll(sel), `${sel} is duplicated`).toHaveLength(1);
+      expect(document.head.querySelector(sel)?.getAttribute("content")).not.toBe("STATIC");
+    }
+    expect(document.title).toBe(
+      `${translations.uk.seo.services.title}${translations.uk.seo.titleSuffix}`,
+    );
+  });
+});
+
 describe("seo helpers", () => {
   it("absoluteUrl does not produce a double slash or a trailing slash", () => {
     expect(absoluteUrl("/")).toBe("https://angl-consulting.com/");
