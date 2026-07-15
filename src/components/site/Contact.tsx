@@ -49,7 +49,10 @@ const COPY = {
   },
 };
 
-const Contact = () => {
+/** `h2` on the homepage, where Hero owns the h1; `h1` when this section is the whole page. */
+type ContactProps = { headingAs?: "h1" | "h2" };
+
+const Contact = ({ headingAs: Heading = "h2" }: ContactProps) => {
   const { lang } = useLang();
   const c = COPY[lang];
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
@@ -68,9 +71,9 @@ const Contact = () => {
       <div className="grid md:grid-cols-12 gap-10 items-start">
         <div className="md:col-span-5">
           <span className="pill">{c.pill}</span>
-          <h2 className="mt-6 text-5xl md:text-6xl leading-[1.05]">
+          <Heading className="mt-6 text-5xl md:text-6xl leading-[1.05]">
             {c.titlePre} <span className="italic text-primary">{c.titleItalic}</span>
-          </h2>
+          </Heading>
           <p className="mt-6 text-muted-foreground max-w-md">{c.desc}</p>
           <div className="mt-8 text-sm text-muted-foreground">
             <p className="mb-2">{c.or}</p>

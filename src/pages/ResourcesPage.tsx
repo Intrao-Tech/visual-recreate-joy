@@ -6,7 +6,7 @@ const ResourcesPage = () => {
   return (
     <main className="min-h-screen bg-background">
       <Navbar variant="solid" />
-      <Resources />
+      <Resources headingAs="h1" />
       <Footer />
     </main>
   );

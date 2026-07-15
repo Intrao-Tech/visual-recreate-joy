@@ -6,7 +6,7 @@ const ContactPage = () => {
   return (
     <main className="min-h-screen bg-background">
       <Navbar variant="solid" />
-      <Contact />
+      <Contact headingAs="h1" />
       <Footer />
     </main>
   );
