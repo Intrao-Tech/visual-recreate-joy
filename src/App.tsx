@@ -34,20 +34,31 @@ export const AppRoutes = () => (
   </Routes>
 );
 
-const App = () => (
+/**
+ * Everything below the router. Kept router-free so the prerenderer can mount it
+ * under a StaticRouter while the browser mounts it under a BrowserRouter — both
+ * must render the identical tree or hydration mismatches.
+ *
+ * LanguageProvider reads the language off the URL, so it has to sit inside
+ * whichever router wraps this.
+ */
+export const AppShell = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
-        {/* LanguageProvider reads the language off the URL, so it must live inside the router. */}
-        <LanguageProvider>
-          <ScrollToTop />
-          <AppRoutes />
-        </LanguageProvider>
-      </BrowserRouter>
+      <LanguageProvider>
+        <ScrollToTop />
+        <AppRoutes />
+      </LanguageProvider>
     </TooltipProvider>
   </QueryClientProvider>
+);
+
+const App = () => (
+  <BrowserRouter>
+    <AppShell />
+  </BrowserRouter>
 );
 
 export default App;

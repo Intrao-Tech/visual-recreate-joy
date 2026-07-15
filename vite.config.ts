@@ -2,21 +2,23 @@ import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
-import { writeSitemap } from "./scripts/sitemap";
+import { writeSitemap, writeRedirects } from "./scripts/sitemap";
 
 /**
- * Regenerates public/sitemap.xml from the app's own routes on every build.
+ * Regenerates the crawler-facing files that must track the app's own routes:
+ * public/sitemap.xml and public/_redirects.
  *
  * Lives in the Vite config rather than a standalone node script so that Vite
  * compiles the TypeScript it imports: no experimental Node flags, and nothing
  * that depends on the build host's Node version.
  */
-const sitemap = (): Plugin => ({
-  name: "angl-sitemap",
-  // `buildStart` so the file exists in public/ before Vite copies it to dist/.
+const seoFiles = (): Plugin => ({
+  name: "angl-seo-files",
+  // `buildStart` so the files exist in public/ before Vite copies them to dist/.
   buildStart() {
-    const count = writeSitemap(path.resolve(__dirname, "./public/sitemap.xml"));
-    this.info?.(`sitemap.xml: ${count} URLs`);
+    const urls = writeSitemap(path.resolve(__dirname, "./public/sitemap.xml"));
+    const redirects = writeRedirects(path.resolve(__dirname, "./public/_redirects"));
+    this.info?.(`sitemap.xml: ${urls} URLs, _redirects: ${redirects} rules`);
   },
 });
 
@@ -29,7 +31,7 @@ export default defineConfig(({ mode }) => ({
       overlay: false,
     },
   },
-  plugins: [react(), sitemap(), mode === "development" && componentTagger()].filter(Boolean),
+  plugins: [react(), seoFiles(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
