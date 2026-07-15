@@ -3,20 +3,25 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
 import { useLang } from "@/i18n/LanguageContext";
-
-/** Only canonical `<category>-<item>` slugs resolve, so each service has exactly one URL. */
-const SLUG = /^(0|[1-9]\d*)-(0|[1-9]\d*)$/;
+import { positionForSlug, slugFor, legacySlugToSlug } from "@/i18n/catalogSlugs";
 
 const ServiceDetail = () => {
   const { t, lang } = useLang();
-  const { slug } = useParams();
-  const match = SLUG.exec(slug ?? "");
-  const ci = match ? Number(match[1]) : -1;
-  const ii = match ? Number(match[2]) : -1;
-  const cat = t.catalog.categories[ci];
-  const item = cat?.items[ii];
+  const { slug = "" } = useParams();
 
-  if (!item) return <Navigate to="/services" replace />;
+  // Old index-based URLs (/services/0-0) may be indexed or linked from elsewhere;
+  // send them to the canonical slug rather than dropping them on /services.
+  // Client-side only — Lovable hosting cannot issue a real 301.
+  const legacyTarget = legacySlugToSlug(slug);
+  if (legacyTarget) return <Navigate to={`/services/${legacyTarget}`} replace />;
+
+  const position = positionForSlug(slug);
+  const cat = position ? t.catalog.categories[position.ci] : undefined;
+  const item = position ? cat?.items[position.ii] : undefined;
+
+  if (!position || !cat || !item) return <Navigate to="/services" replace />;
+
+  const { ci, ii } = position;
 
   // Related items from same category (excluding current)
   const related = cat.items.map((it, idx) => ({ it, idx })).filter((x) => x.idx !== ii);
@@ -84,7 +89,7 @@ const ServiceDetail = () => {
                 {related.map(({ it, idx }) => (
                   <Link
                     key={idx}
-                    to={`/services/${ci}-${idx}`}
+                    to={`/services/${slugFor(ci, idx)}`}
                     className="group relative flex flex-col rounded-3xl border border-background/10 bg-background/5 p-6 transition-all duration-500 hover:bg-primary"
                   >
                     <h3 className="text-lg leading-snug">{it.title}</h3>

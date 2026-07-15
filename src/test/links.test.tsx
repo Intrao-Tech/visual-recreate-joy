@@ -13,6 +13,7 @@ import ServicesPage from "@/pages/ServicesPage";
 import NotFound from "@/pages/NotFound";
 import { LanguageProvider } from "@/i18n/LanguageContext";
 import { translations } from "@/i18n/translations";
+import { slugFor } from "@/i18n/catalogSlugs";
 import { CONTACTS } from "@/lib/contacts";
 
 const renderAt = (ui: React.ReactNode) =>
@@ -164,7 +165,7 @@ describe("service detail slugs", () => {
     );
 
   it("renders the addressed service for a canonical slug", () => {
-    renderSlug("1-2");
+    renderSlug("financial-health-audit");
     const { title } = translations.uk.catalog.categories[1].items[2];
     expect(screen.getByRole("heading", { level: 1, name: title })).toBeInTheDocument();
   });
@@ -182,11 +183,33 @@ describe("service detail slugs", () => {
   it("every catalog entry has a reachable detail page", () => {
     translations.uk.catalog.categories.forEach((cat, ci) =>
       cat.items.forEach((item, ii) => {
+        const { unmount } = renderSlug(slugFor(ci, ii) as string);
+        expect(screen.getByRole("heading", { level: 1, name: item.title })).toBeInTheDocument();
+        unmount();
+      }),
+    );
+  });
+
+  it("retired /services/0-0 URLs still land on the right service", () => {
+    // Old index URLs may be indexed or linked externally; they must not 404 or
+    // land on the wrong service.
+    translations.uk.catalog.categories.forEach((cat, ci) =>
+      cat.items.forEach((item, ii) => {
         const { unmount } = renderSlug(`${ci}-${ii}`);
         expect(screen.getByRole("heading", { level: 1, name: item.title })).toBeInTheDocument();
         unmount();
       }),
     );
+  });
+
+  it("links out of the catalog use readable slugs, never indices", () => {
+    const { container } = renderAt(<ServicesPage />);
+    const serviceLinks = hrefs(container).filter((h) => h.startsWith("/services/"));
+    expect(serviceLinks).toHaveLength(26);
+    for (const href of serviceLinks) {
+      expect(href).not.toMatch(/^\/services\/\d+-\d+$/);
+      expect(href.replace("/services/", "")).toMatch(/^[a-z][a-z0-9-]*$/);
+    }
   });
 });
 

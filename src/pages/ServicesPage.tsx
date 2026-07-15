@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
 import { useLang } from "@/i18n/LanguageContext";
+import { slugFor } from "@/i18n/catalogSlugs";
 
 const ServicesPage = () => {
   const { t } = useLang();
@@ -30,7 +31,7 @@ const ServicesPage = () => {
                   {cat.items.map((it, ii) => (
                     <Link
                       key={ii}
-                      to={`/services/${ci}-${ii}`}
+                      to={`/services/${slugFor(ci, ii)}`}
                       className="group relative flex flex-col rounded-3xl border border-background/10 bg-background/5 p-6 transition-all duration-500 hover:bg-primary"
                     >
                       <h3 className="text-lg leading-snug">{it.title}</h3>

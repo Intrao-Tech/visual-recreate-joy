@@ -9,6 +9,7 @@ import s6 from "@/assets/hero-2.jpg";
 import s7 from "@/assets/office-clean-2026.jpg";
 import s8 from "@/assets/about.jpg";
 import { useLang } from "@/i18n/LanguageContext";
+import { slugFor } from "@/i18n/catalogSlugs";
 
 /** One image per catalog category — kept in sync by the catalog-images test. */
 const imgs = [s1, s2, s3, s4, s5, s6, s7, s8];
@@ -87,7 +88,7 @@ const Services = () => {
                 {cat.items.map((it, ii) => (
                   <Link
                     key={ii}
-                    to={`/services/${ci}-${ii}`}
+                    to={`/services/${slugFor(ci, ii)}`}
                     className="group relative flex flex-col rounded-3xl border border-background/10 bg-background/5 p-6 transition-all duration-500 hover:bg-primary"
                   >
                     <h4 className="text-lg leading-snug">{it.title}</h4>
