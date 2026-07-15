@@ -1,22 +1,78 @@
-import { Link, useParams, Navigate } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
+import { Link } from "@/i18n/Link";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
 import { useLang } from "@/i18n/LanguageContext";
+import { positionForSlug, slugFor, legacySlugToSlug, type CatalogPosition } from "@/i18n/catalogSlugs";
+import { withLang } from "@/i18n/routing";
+import { useSeo } from "@/lib/useSeo";
+import { fillTemplate, absoluteUrl } from "@/lib/seo";
+import { useJsonLd } from "@/lib/useJsonLd";
+import { serviceLd, breadcrumbLd, organizationLd } from "@/lib/jsonLd";
 
-/** Only canonical `<category>-<item>` slugs resolve, so each service has exactly one URL. */
-const SLUG = /^(0|[1-9]\d*)-(0|[1-9]\d*)$/;
-
+/**
+ * Resolves the URL to a catalog position and redirects if it doesn't name one.
+ *
+ * Split from the view below so that every hook the view needs — including
+ * useSeo — runs unconditionally. Calling useSeo after these early returns would
+ * change the hook count between renders and break the Rules of Hooks.
+ */
 const ServiceDetail = () => {
+  const { lang } = useLang();
+  const { slug = "" } = useParams();
+
+  // Old index-based URLs (/services/0-0) may be indexed or linked from elsewhere;
+  // send them to the canonical slug rather than dropping them on /services.
+  // Client-side only — Lovable hosting cannot issue a real 301.
+  const legacyTarget = legacySlugToSlug(slug);
+  if (legacyTarget) {
+    return <Navigate to={withLang(`/services/${legacyTarget}`, lang)} replace />;
+  }
+
+  const position = positionForSlug(slug);
+  if (!position) return <Navigate to={withLang("/services", lang)} replace />;
+
+  return <ServiceDetailView position={position} />;
+};
+
+const ServiceDetailView = ({ position }: { position: CatalogPosition }) => {
   const { t, lang } = useLang();
-  const { slug } = useParams();
-  const match = SLUG.exec(slug ?? "");
-  const ci = match ? Number(match[1]) : -1;
-  const ii = match ? Number(match[2]) : -1;
+  const { ci, ii } = position;
   const cat = t.catalog.categories[ci];
   const item = cat?.items[ii];
+  const slug = slugFor(ci, ii) as string;
+  const url = absoluteUrl(withLang(`/services/${slug}`, lang));
 
-  if (!item) return <Navigate to="/services" replace />;
+  useSeo({
+    title: fillTemplate(t.seo.serviceTitle, { service: item?.title ?? "", category: cat?.title ?? "" }),
+    description: fillTemplate(t.seo.serviceDesc, {
+      copy: item?.copy ?? "",
+      price: item?.price ?? "",
+      category: cat?.title ?? "",
+      service: item?.title ?? "",
+    }),
+    type: "article",
+  });
+
+  useJsonLd(
+    item && cat
+      ? [
+          organizationLd(),
+          serviceLd(item, cat.title, url),
+          breadcrumbLd([
+            { name: t.nav.home, path: withLang("/", lang) },
+            { name: t.nav.services, path: withLang("/services", lang) },
+            { name: item.title, path: withLang(`/services/${slug}`, lang) },
+          ]),
+        ]
+      : [],
+  );
+
+  // The slug table and the catalog are shape-checked against each other by
+  // catalogSlugs.test.ts, so this is unreachable in practice — but a bad index
+  // must not render a half-empty page.
+  if (!cat || !item) return <Navigate to={withLang("/services", lang)} replace />;
 
   // Related items from same category (excluding current)
   const related = cat.items.map((it, idx) => ({ it, idx })).filter((x) => x.idx !== ii);
@@ -84,7 +140,7 @@ const ServiceDetail = () => {
                 {related.map(({ it, idx }) => (
                   <Link
                     key={idx}
-                    to={`/services/${ci}-${idx}`}
+                    to={`/services/${slugFor(ci, idx)}`}
                     className="group relative flex flex-col rounded-3xl border border-background/10 bg-background/5 p-6 transition-all duration-500 hover:bg-primary"
                   >
                     <h3 className="text-lg leading-snug">{it.title}</h3>

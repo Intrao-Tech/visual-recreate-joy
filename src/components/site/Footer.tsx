@@ -1,5 +1,5 @@
 import { Sparkle } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "@/i18n/Link";
 import { useLang } from "@/i18n/LanguageContext";
 import { CONTACTS, MAILTO, TEL } from "@/lib/contacts";
 import { FacebookIcon, TelegramIcon } from "./BrandIcons";

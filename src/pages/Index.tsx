@@ -9,8 +9,16 @@ import Testimonials from "@/components/site/Testimonials";
 import Resources from "@/components/site/Resources";
 import Contact from "@/components/site/Contact";
 import Footer from "@/components/site/Footer";
+import { useLang } from "@/i18n/LanguageContext";
+import { useSeo } from "@/lib/useSeo";
+import { useJsonLd } from "@/lib/useJsonLd";
+import { organizationLd, webSiteLd } from "@/lib/jsonLd";
 
 const Index = () => {
+  const { t, lang } = useLang();
+  useSeo(t.seo.home);
+  useJsonLd([organizationLd(), webSiteLd(lang)]);
+
   return (
     <main className="min-h-screen bg-background">
       <Navbar />

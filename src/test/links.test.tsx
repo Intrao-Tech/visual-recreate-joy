@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
-import { MemoryRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import { Providers } from "./providers";
 import userEvent from "@testing-library/user-event";
 import Footer from "@/components/site/Footer";
 import Contact from "@/components/site/Contact";
@@ -11,16 +12,11 @@ import Steps from "@/components/site/Steps";
 import ServiceDetail from "@/pages/ServiceDetail";
 import ServicesPage from "@/pages/ServicesPage";
 import NotFound from "@/pages/NotFound";
-import { LanguageProvider } from "@/i18n/LanguageContext";
 import { translations } from "@/i18n/translations";
+import { slugFor } from "@/i18n/catalogSlugs";
 import { CONTACTS } from "@/lib/contacts";
 
-const renderAt = (ui: React.ReactNode) =>
-  render(
-    <MemoryRouter>
-      <LanguageProvider>{ui}</LanguageProvider>
-    </MemoryRouter>,
-  );
+const renderAt = (ui: React.ReactNode) => render(<Providers>{ui}</Providers>);
 
 const hrefs = (c: HTMLElement) =>
   Array.from(c.querySelectorAll("a")).map((a) => a.getAttribute("href") ?? "");
@@ -153,18 +149,16 @@ describe("mobile navigation", () => {
 describe("service detail slugs", () => {
   const renderSlug = (slug: string) =>
     render(
-      <MemoryRouter initialEntries={[`/services/${slug}`]}>
-        <LanguageProvider>
-          <Routes>
-            <Route path="/services" element={<ServicesPage />} />
-            <Route path="/services/:slug" element={<ServiceDetail />} />
-          </Routes>
-        </LanguageProvider>
-      </MemoryRouter>,
+      <Providers route={`/services/${slug}`}>
+        <Routes>
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/services/:slug" element={<ServiceDetail />} />
+        </Routes>
+      </Providers>,
     );
 
   it("renders the addressed service for a canonical slug", () => {
-    renderSlug("1-2");
+    renderSlug("financial-health-audit");
     const { title } = translations.uk.catalog.categories[1].items[2];
     expect(screen.getByRole("heading", { level: 1, name: title })).toBeInTheDocument();
   });
@@ -182,11 +176,33 @@ describe("service detail slugs", () => {
   it("every catalog entry has a reachable detail page", () => {
     translations.uk.catalog.categories.forEach((cat, ci) =>
       cat.items.forEach((item, ii) => {
+        const { unmount } = renderSlug(slugFor(ci, ii) as string);
+        expect(screen.getByRole("heading", { level: 1, name: item.title })).toBeInTheDocument();
+        unmount();
+      }),
+    );
+  });
+
+  it("retired /services/0-0 URLs still land on the right service", () => {
+    // Old index URLs may be indexed or linked externally; they must not 404 or
+    // land on the wrong service.
+    translations.uk.catalog.categories.forEach((cat, ci) =>
+      cat.items.forEach((item, ii) => {
         const { unmount } = renderSlug(`${ci}-${ii}`);
         expect(screen.getByRole("heading", { level: 1, name: item.title })).toBeInTheDocument();
         unmount();
       }),
     );
+  });
+
+  it("links out of the catalog use readable slugs, never indices", () => {
+    const { container } = renderAt(<ServicesPage />);
+    const serviceLinks = hrefs(container).filter((h) => h.startsWith("/services/"));
+    expect(serviceLinks).toHaveLength(26);
+    for (const href of serviceLinks) {
+      expect(href).not.toMatch(/^\/services\/\d+-\d+$/);
+      expect(href.replace("/services/", "")).toMatch(/^[a-z][a-z0-9-]*$/);
+    }
   });
 });
 
@@ -206,11 +222,7 @@ describe("imagery", () => {
   it("never renders an image without a source", () => {
     // Guards the image arrays that run parallel to translated content.
     for (const ui of [<Services />, <Steps />, <Resources />]) {
-      const { container, unmount } = render(
-        <MemoryRouter>
-          <LanguageProvider>{ui}</LanguageProvider>
-        </MemoryRouter>,
-      );
+      const { container, unmount } = renderAt(ui);
       const imgs = Array.from(container.querySelectorAll("img"));
       expect(imgs.length).toBeGreaterThan(0);
       for (const img of imgs) {
@@ -221,13 +233,7 @@ describe("imagery", () => {
   });
 
   it("gives every catalog category its own image", () => {
-    const { container } = render(
-      <MemoryRouter>
-        <LanguageProvider>
-          <Services />
-        </LanguageProvider>
-      </MemoryRouter>,
-    );
+    const { container } = renderAt(<Services />);
     // The carousel duplicates the list, so dedupe by alt text before comparing.
     const byAlt = new Map(
       Array.from(container.querySelectorAll("img")).map((i) => [i.getAttribute("alt"), i.getAttribute("src")]),

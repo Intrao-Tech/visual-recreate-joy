@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, Sparkle, X } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { Link } from "@/i18n/Link";
 import { useLang } from "@/i18n/LanguageContext";
 import LanguageSwitcher from "./LanguageSwitcher";
 

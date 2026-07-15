@@ -1,11 +1,25 @@
-import { Link } from "react-router-dom";
+import { Link } from "@/i18n/Link";
 import { ArrowUpRight } from "lucide-react";
 import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
 import { useLang } from "@/i18n/LanguageContext";
+import { slugFor } from "@/i18n/catalogSlugs";
+import { useSeo } from "@/lib/useSeo";
+import { useJsonLd } from "@/lib/useJsonLd";
+import { breadcrumbLd, organizationLd } from "@/lib/jsonLd";
+import { withLang } from "@/i18n/routing";
 
 const ServicesPage = () => {
-  const { t } = useLang();
+  const { t, lang } = useLang();
+  useSeo(t.seo.services);
+  useJsonLd([
+    organizationLd(),
+    breadcrumbLd([
+      { name: t.nav.home, path: withLang("/", lang) },
+      { name: t.nav.services, path: withLang("/services", lang) },
+    ]),
+  ]);
+
   return (
     <main className="min-h-screen bg-ink text-background">
       <Navbar />
@@ -30,7 +44,7 @@ const ServicesPage = () => {
                   {cat.items.map((it, ii) => (
                     <Link
                       key={ii}
-                      to={`/services/${ci}-${ii}`}
+                      to={`/services/${slugFor(ci, ii)}`}
                       className="group relative flex flex-col rounded-3xl border border-background/10 bg-background/5 p-6 transition-all duration-500 hover:bg-primary"
                     >
                       <h3 className="text-lg leading-snug">{it.title}</h3>

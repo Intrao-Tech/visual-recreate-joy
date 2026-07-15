@@ -1,0 +1,814 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://angl-consulting.com/</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/en</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/ru</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/services</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/en/services</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/ru/services</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/contact</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/contact"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/en/contact</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/contact"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/ru/contact</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/contact"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/resources</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/resources"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/resources"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/resources"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/resources"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/en/resources</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/resources"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/resources"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/resources"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/resources"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/ru/resources</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/resources"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/resources"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/resources"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/resources"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/services/individual-consultation</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/individual-consultation"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/individual-consultation"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/individual-consultation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/individual-consultation"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/en/services/individual-consultation</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/individual-consultation"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/individual-consultation"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/individual-consultation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/individual-consultation"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/ru/services/individual-consultation</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/individual-consultation"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/individual-consultation"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/individual-consultation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/individual-consultation"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/services/written-expert-opinion</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/written-expert-opinion"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/written-expert-opinion"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/written-expert-opinion"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/written-expert-opinion"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/en/services/written-expert-opinion</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/written-expert-opinion"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/written-expert-opinion"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/written-expert-opinion"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/written-expert-opinion"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/ru/services/written-expert-opinion</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/written-expert-opinion"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/written-expert-opinion"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/written-expert-opinion"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/written-expert-opinion"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/services/strategic-session-business-owner</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/strategic-session-business-owner"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/strategic-session-business-owner"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/strategic-session-business-owner"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/strategic-session-business-owner"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/en/services/strategic-session-business-owner</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/strategic-session-business-owner"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/strategic-session-business-owner"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/strategic-session-business-owner"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/strategic-session-business-owner"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/ru/services/strategic-session-business-owner</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/strategic-session-business-owner"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/strategic-session-business-owner"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/strategic-session-business-owner"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/strategic-session-business-owner"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/services/managerial-accounting-system</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/managerial-accounting-system"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/managerial-accounting-system"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/managerial-accounting-system"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/managerial-accounting-system"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/en/services/managerial-accounting-system</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/managerial-accounting-system"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/managerial-accounting-system"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/managerial-accounting-system"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/managerial-accounting-system"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/ru/services/managerial-accounting-system</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/managerial-accounting-system"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/managerial-accounting-system"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/managerial-accounting-system"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/managerial-accounting-system"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/services/cost-calculation-development</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/cost-calculation-development"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/cost-calculation-development"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/cost-calculation-development"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/cost-calculation-development"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/en/services/cost-calculation-development</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/cost-calculation-development"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/cost-calculation-development"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/cost-calculation-development"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/cost-calculation-development"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/ru/services/cost-calculation-development</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/cost-calculation-development"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/cost-calculation-development"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/cost-calculation-development"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/cost-calculation-development"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/services/financial-health-audit</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/financial-health-audit"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/financial-health-audit"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/financial-health-audit"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/financial-health-audit"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/en/services/financial-health-audit</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/financial-health-audit"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/financial-health-audit"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/financial-health-audit"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/financial-health-audit"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/ru/services/financial-health-audit</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/financial-health-audit"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/financial-health-audit"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/financial-health-audit"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/financial-health-audit"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/services/tax-structuring</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/tax-structuring"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/tax-structuring"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/tax-structuring"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/tax-structuring"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/en/services/tax-structuring</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/tax-structuring"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/tax-structuring"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/tax-structuring"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/tax-structuring"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/ru/services/tax-structuring</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/tax-structuring"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/tax-structuring"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/tax-structuring"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/tax-structuring"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/services/tax-audit-support</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/tax-audit-support"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/tax-audit-support"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/tax-audit-support"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/tax-audit-support"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/en/services/tax-audit-support</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/tax-audit-support"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/tax-audit-support"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/tax-audit-support"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/tax-audit-support"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/ru/services/tax-audit-support</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/tax-audit-support"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/tax-audit-support"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/tax-audit-support"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/tax-audit-support"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/services/vat-invoice-unblocking</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/vat-invoice-unblocking"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/vat-invoice-unblocking"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/vat-invoice-unblocking"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/vat-invoice-unblocking"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/en/services/vat-invoice-unblocking</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/vat-invoice-unblocking"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/vat-invoice-unblocking"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/vat-invoice-unblocking"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/vat-invoice-unblocking"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/ru/services/vat-invoice-unblocking</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/vat-invoice-unblocking"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/vat-invoice-unblocking"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/vat-invoice-unblocking"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/vat-invoice-unblocking"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/services/financial-monitoring-support</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/financial-monitoring-support"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/financial-monitoring-support"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/financial-monitoring-support"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/financial-monitoring-support"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/en/services/financial-monitoring-support</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/financial-monitoring-support"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/financial-monitoring-support"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/financial-monitoring-support"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/financial-monitoring-support"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/ru/services/financial-monitoring-support</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/financial-monitoring-support"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/financial-monitoring-support"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/financial-monitoring-support"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/financial-monitoring-support"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/services/account-unblocking</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/account-unblocking"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/account-unblocking"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/account-unblocking"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/account-unblocking"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/en/services/account-unblocking</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/account-unblocking"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/account-unblocking"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/account-unblocking"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/account-unblocking"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/ru/services/account-unblocking</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/account-unblocking"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/account-unblocking"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/account-unblocking"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/account-unblocking"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/services/safe-start-package</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/safe-start-package"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/safe-start-package"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/safe-start-package"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/safe-start-package"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/en/services/safe-start-package</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/safe-start-package"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/safe-start-package"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/safe-start-package"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/safe-start-package"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/ru/services/safe-start-package</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/safe-start-package"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/safe-start-package"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/safe-start-package"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/safe-start-package"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/services/outsourced-cfo-package</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/outsourced-cfo-package"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/outsourced-cfo-package"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/outsourced-cfo-package"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/outsourced-cfo-package"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/en/services/outsourced-cfo-package</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/outsourced-cfo-package"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/outsourced-cfo-package"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/outsourced-cfo-package"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/outsourced-cfo-package"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/ru/services/outsourced-cfo-package</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/outsourced-cfo-package"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/outsourced-cfo-package"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/outsourced-cfo-package"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/outsourced-cfo-package"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/services/accountant-online-intensive</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/accountant-online-intensive"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/accountant-online-intensive"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/accountant-online-intensive"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/accountant-online-intensive"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/en/services/accountant-online-intensive</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/accountant-online-intensive"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/accountant-online-intensive"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/accountant-online-intensive"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/accountant-online-intensive"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/ru/services/accountant-online-intensive</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/accountant-online-intensive"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/accountant-online-intensive"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/accountant-online-intensive"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/accountant-online-intensive"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/services/excel-google-sheets-workshop</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/excel-google-sheets-workshop"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/excel-google-sheets-workshop"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/excel-google-sheets-workshop"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/excel-google-sheets-workshop"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/en/services/excel-google-sheets-workshop</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/excel-google-sheets-workshop"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/excel-google-sheets-workshop"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/excel-google-sheets-workshop"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/excel-google-sheets-workshop"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/ru/services/excel-google-sheets-workshop</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/excel-google-sheets-workshop"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/excel-google-sheets-workshop"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/excel-google-sheets-workshop"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/excel-google-sheets-workshop"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/services/corporate-team-course</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/corporate-team-course"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/corporate-team-course"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/corporate-team-course"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/corporate-team-course"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/en/services/corporate-team-course</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/corporate-team-course"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/corporate-team-course"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/corporate-team-course"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/corporate-team-course"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/ru/services/corporate-team-course</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/corporate-team-course"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/corporate-team-course"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/corporate-team-course"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/corporate-team-course"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/services/digital-instructions-regulations</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/digital-instructions-regulations"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/digital-instructions-regulations"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/digital-instructions-regulations"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/digital-instructions-regulations"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/en/services/digital-instructions-regulations</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/digital-instructions-regulations"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/digital-instructions-regulations"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/digital-instructions-regulations"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/digital-instructions-regulations"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/ru/services/digital-instructions-regulations</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/digital-instructions-regulations"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/digital-instructions-regulations"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/digital-instructions-regulations"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/digital-instructions-regulations"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/services/german-market-entry</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/german-market-entry"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/german-market-entry"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/german-market-entry"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/german-market-entry"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/en/services/german-market-entry</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/german-market-entry"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/german-market-entry"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/german-market-entry"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/german-market-entry"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/ru/services/german-market-entry</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/german-market-entry"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/german-market-entry"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/german-market-entry"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/german-market-entry"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/services/datev-sap-integration-prep</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/datev-sap-integration-prep"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/datev-sap-integration-prep"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/datev-sap-integration-prep"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/datev-sap-integration-prep"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/en/services/datev-sap-integration-prep</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/datev-sap-integration-prep"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/datev-sap-integration-prep"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/datev-sap-integration-prep"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/datev-sap-integration-prep"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/ru/services/datev-sap-integration-prep</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/datev-sap-integration-prep"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/datev-sap-integration-prep"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/datev-sap-integration-prep"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/datev-sap-integration-prep"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/services/european-partners-calculation-base</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/european-partners-calculation-base"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/european-partners-calculation-base"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/european-partners-calculation-base"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/european-partners-calculation-base"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/en/services/european-partners-calculation-base</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/european-partners-calculation-base"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/european-partners-calculation-base"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/european-partners-calculation-base"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/european-partners-calculation-base"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/ru/services/european-partners-calculation-base</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/european-partners-calculation-base"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/european-partners-calculation-base"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/european-partners-calculation-base"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/european-partners-calculation-base"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/services/compliance-communication-support</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/compliance-communication-support"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/compliance-communication-support"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/compliance-communication-support"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/compliance-communication-support"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/en/services/compliance-communication-support</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/compliance-communication-support"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/compliance-communication-support"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/compliance-communication-support"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/compliance-communication-support"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/ru/services/compliance-communication-support</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/compliance-communication-support"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/compliance-communication-support"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/compliance-communication-support"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/compliance-communication-support"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/services/insurance-germany</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/insurance-germany"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/insurance-germany"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/insurance-germany"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/insurance-germany"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/en/services/insurance-germany</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/insurance-germany"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/insurance-germany"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/insurance-germany"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/insurance-germany"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/ru/services/insurance-germany</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/insurance-germany"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/insurance-germany"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/insurance-germany"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/insurance-germany"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/services/pension-planning-germany</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/pension-planning-germany"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/pension-planning-germany"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/pension-planning-germany"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/pension-planning-germany"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/en/services/pension-planning-germany</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/pension-planning-germany"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/pension-planning-germany"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/pension-planning-germany"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/pension-planning-germany"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/ru/services/pension-planning-germany</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/pension-planning-germany"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/pension-planning-germany"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/pension-planning-germany"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/pension-planning-germany"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/services/investment-wealth-building</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/investment-wealth-building"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/investment-wealth-building"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/investment-wealth-building"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/investment-wealth-building"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/en/services/investment-wealth-building</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/investment-wealth-building"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/investment-wealth-building"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/investment-wealth-building"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/investment-wealth-building"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/ru/services/investment-wealth-building</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/investment-wealth-building"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/investment-wealth-building"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/investment-wealth-building"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/investment-wealth-building"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/services/financing-germany</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/financing-germany"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/financing-germany"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/financing-germany"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/financing-germany"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/en/services/financing-germany</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/financing-germany"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/financing-germany"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/financing-germany"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/financing-germany"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/ru/services/financing-germany</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/financing-germany"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/financing-germany"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/financing-germany"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/financing-germany"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/services/free-portfolio-analysis</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/free-portfolio-analysis"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/free-portfolio-analysis"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/free-portfolio-analysis"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/free-portfolio-analysis"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/en/services/free-portfolio-analysis</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/free-portfolio-analysis"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/free-portfolio-analysis"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/free-portfolio-analysis"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/free-portfolio-analysis"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://angl-consulting.com/ru/services/free-portfolio-analysis</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://angl-consulting.com/services/free-portfolio-analysis"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://angl-consulting.com/en/services/free-portfolio-analysis"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://angl-consulting.com/ru/services/free-portfolio-analysis"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://angl-consulting.com/services/free-portfolio-analysis"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>
