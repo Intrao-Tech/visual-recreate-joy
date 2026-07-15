@@ -16,7 +16,13 @@ import { withLang } from "./routing";
  */
 const Link = forwardRef<HTMLAnchorElement, LinkProps>(({ to, ...props }, ref) => {
   const { lang } = useLang();
-  const localized = typeof to === "string" ? withLang(to, lang) : to;
+  // `to` also accepts a Partial<Path> object. Localize its pathname too —
+  // passing the object straight through would silently drop the visitor back
+  // into Ukrainian, and that failure is invisible in review.
+  const localized =
+    typeof to === "string"
+      ? withLang(to, lang)
+      : { ...to, ...(to.pathname ? { pathname: withLang(to.pathname, lang) } : {}) };
   return <RouterLink ref={ref} to={localized} {...props} />;
 });
 

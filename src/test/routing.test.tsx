@@ -6,6 +6,7 @@ import userEvent from "@testing-library/user-event";
 import { Providers } from "./providers";
 import { langFromPath, stripLangPrefix, withLang, DEFAULT_LANG } from "@/i18n/routing";
 import { useLang } from "@/i18n/LanguageContext";
+import { Link } from "@/i18n/Link";
 import { AppRoutes } from "@/App";
 import { translations } from "@/i18n/translations";
 import { slugFor } from "@/i18n/catalogSlugs";
@@ -193,9 +194,29 @@ describe("components use the language-aware Link", () => {
     const offenders = walk("src")
       .filter((f) => /\.tsx?$/.test(f))
       .filter((f) => !f.includes("/test/") && !f.includes("/components/ui/"))
-      .filter((f) => !allowed.some((a) => f.endsWith(a.replace("src/", "src/"))))
+      .filter((f) => !allowed.some((a) => f.endsWith(a)))
       .filter((f) => /import\s*\{[^}]*\bLink\b[^}]*\}\s*from\s*["']react-router-dom["']/.test(readFileSync(f, "utf8")));
     expect(offenders, `these must import Link from "@/i18n/Link"`).toEqual([]);
+  });
+});
+
+describe("the language-aware Link", () => {
+  it("localizes an object `to`, not just a string", () => {
+    const { container } = render(
+      <Providers route="/en">
+        <Link to={{ pathname: "/services", hash: "#cat-1" }}>go</Link>
+      </Providers>,
+    );
+    expect(container.querySelector("a")?.getAttribute("href")).toBe("/en/services#cat-1");
+  });
+
+  it("leaves an object `to` without a pathname alone", () => {
+    const { container } = render(
+      <Providers route="/en/services">
+        <Link to={{ hash: "#cat-2" }}>go</Link>
+      </Providers>,
+    );
+    expect(container.querySelector("a")?.getAttribute("href")).toBe("/en/services#cat-2");
   });
 });
 

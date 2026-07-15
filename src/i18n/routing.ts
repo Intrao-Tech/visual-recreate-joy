@@ -48,6 +48,3 @@ export const withLang = (to: string, lang: Lang): string => {
 
   return `${bare === "/" ? `/${lang}` : `/${lang}${bare}`}${suffix}`;
 };
-
-/** Language-agnostic paths of every indexable route, used for hreflang and the sitemap. */
-export const localizedPath = (path: string, lang: Lang): string => withLang(path, lang);

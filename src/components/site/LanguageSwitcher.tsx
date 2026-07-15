@@ -39,7 +39,7 @@ const LanguageSwitcher = ({ tone = "light" }: { tone?: "light" | "dark" }) => {
             <Link
               to={`${withLang(barePath, o.code)}${search}${hash}`}
               hrefLang={o.code}
-              aria-current={isActive ? "true" : undefined}
+              aria-current={isActive ? "page" : undefined}
               className={`transition-colors ${isActive ? active : base}`}
               aria-label={`Switch to ${o.label}`}
             >
