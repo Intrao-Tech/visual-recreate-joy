@@ -1,0 +1,25 @@
+{
+  // Static-assets-only Worker: no `main`, so no Worker script is ever invoked.
+  // Cloudflare bills only Worker invocations — "requests to static assets are
+  // free and unlimited" — so this site costs nothing to serve at any traffic.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "visual-recreate-joy",
+  "compatibility_date": "2026-07-15",
+  "assets": {
+    "directory": "./dist/",
+
+    // Serves the nearest 404.html with a real 404 status instead of falling
+    // back to index.html. This is the setting that fixes the audit's point 4:
+    // Lovable answers 200 for every unknown URL, which reads as a soft-404.
+    // "Nearest" is why the build emits dist/404.html, dist/en/404.html and
+    // dist/ru/404.html — /en/nope gets the English one, not Ukrainian markup.
+    "not_found_handling": "404-page",
+
+    // NOT the default ("auto-trailing-slash"), which would serve
+    // dist/services/index.html at "/services/" and 307 "/services" to it —
+    // while every canonical and sitemap entry says "/services" with no slash.
+    // Canonical and host must agree on one URL per page; this drops the slash,
+    // matching absoluteUrl() in src/lib/seo.ts.
+    "html_handling": "drop-trailing-slash"
+  }
+}
