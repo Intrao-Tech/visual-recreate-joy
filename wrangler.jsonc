@@ -5,6 +5,14 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "visual-recreate-joy",
   "compatibility_date": "2026-07-15",
+
+  // Serve the site on the production apex. `custom_domain: true` makes
+  // Cloudflare route angl-consulting.com straight to this Worker's static
+  // assets, replacing the earlier "proxy to Lovable" path. www is handled by a
+  // separate 301 redirect rule, not a second custom domain, so the site lives
+  // at exactly one canonical URL.
+  "routes": [{ "pattern": "angl-consulting.com", "custom_domain": true }],
+
   "assets": {
     "directory": "./dist/",
 
