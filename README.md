@@ -23,6 +23,27 @@ Vite + React 18 + react-router-dom v6, TypeScript, Tailwind, shadcn/ui.
 `www → apex` (301) і старі `/services/N-N → слаг` (301) налаштовані на рівні
 зони Cloudflare (Redirect Rules) та у `public/_redirects` відповідно.
 
+## Форма заявок → Telegram
+
+Контактна форма POST-ить на `/api/contact`, який обробляє Worker
+(`src/worker.ts`) і пересилає заявку в Telegram через Bot API `sendMessage`.
+Статика при цьому лишається asset-first (безкоштовною) — Worker викликається
+лише для `/api/*` та неіснуючих URL.
+
+Захист: перевірка `Origin`, honeypot-поле `website`, ліміти довжини полів.
+
+Секрети (одноразово, після створення бота через @BotFather):
+
+```sh
+npx wrangler secret put TELEGRAM_BOT_TOKEN   # токен від @BotFather
+npx wrangler secret put TELEGRAM_CHAT_ID     # chat_id одержувачки (бот → getUpdates)
+```
+
+Поки секрети не задані, `/api/contact` відповідає 503 і форма показує
+помилку з проханням написати на email. Локально: скопіювати
+`.dev.vars.example` → `.dev.vars`, запустити `npx wrangler dev` поряд із
+`npm run dev` (Vite проксує `/api` на порт 8787).
+
 ## Збірка
 
 ```sh

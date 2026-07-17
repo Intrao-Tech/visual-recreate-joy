@@ -30,6 +30,12 @@ export default defineConfig(({ mode }) => ({
     hmr: {
       overlay: false,
     },
+    proxy: {
+      // The contact-form API lives in the Cloudflare Worker (src/worker.ts),
+      // which Vite doesn't run. Start it alongside `npm run dev` with
+      // `npx wrangler dev` (port 8787) to exercise the form locally.
+      "/api": "http://localhost:8787",
+    },
   },
   plugins: [react(), seoFiles(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {

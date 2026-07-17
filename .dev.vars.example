@@ -1,0 +1,11 @@
+# Local secrets for `wrangler dev`. Copy to .dev.vars (gitignored) and fill in.
+# Production uses Worker secrets instead:
+#   npx wrangler secret put TELEGRAM_BOT_TOKEN
+#   npx wrangler secret put TELEGRAM_CHAT_ID
+
+# Bot token from @BotFather (/newbot)
+TELEGRAM_BOT_TOKEN=123456789:AA...
+
+# Chat that receives the leads. The owner must /start the bot first, then:
+# https://api.telegram.org/bot<TOKEN>/getUpdates → result[].message.chat.id
+TELEGRAM_CHAT_ID=123456789

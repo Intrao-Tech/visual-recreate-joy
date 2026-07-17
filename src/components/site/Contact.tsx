@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useLang } from "@/i18n/LanguageContext";
 import { toast } from "@/hooks/use-toast";
-import { CONTACTS, MAILTO, TEL, mailtoWith } from "@/lib/contacts";
+import { CONTACTS, MAILTO, TEL } from "@/lib/contacts";
 import { FacebookIcon, TelegramIcon } from "./BrandIcons";
 
 const COPY = {
@@ -15,9 +15,10 @@ const COPY = {
     phone: "Телефон",
     message: "Розкажіть про вашу задачу",
     submit: "Надіслати →",
+    sending: "Надсилаємо…",
     sent: "Дякуємо! Ми з вами зв’яжемось.",
+    error: "Не вдалося надіслати. Спробуйте ще раз або напишіть нам на email.",
     or: "Або напишіть напряму:",
-    subject: "Заявка з сайту",
   },
   en: {
     pill: "Contact",
@@ -29,9 +30,10 @@ const COPY = {
     phone: "Phone",
     message: "Tell us about your task",
     submit: "Send →",
+    sending: "Sending…",
     sent: "Thank you! We’ll be in touch shortly.",
+    error: "Couldn’t send your request. Please try again or email us directly.",
     or: "Or reach out directly:",
-    subject: "Website enquiry",
   },
   ru: {
     pill: "Контакты",
@@ -43,9 +45,10 @@ const COPY = {
     phone: "Телефон",
     message: "Расскажите о вашей задаче",
     submit: "Отправить →",
+    sending: "Отправляем…",
     sent: "Спасибо! Мы скоро свяжемся с вами.",
+    error: "Не удалось отправить. Попробуйте ещё раз или напишите нам на email.",
     or: "Или напишите напрямую:",
-    subject: "Заявка с сайта",
   },
 };
 
@@ -56,14 +59,28 @@ const Contact = ({ headingAs: Heading = "h2" }: ContactProps) => {
   const { lang } = useLang();
   const c = COPY[lang];
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
+  // Honeypot: invisible to humans, bots fill it; the Worker drops those silently.
+  const [website, setWebsite] = useState("");
+  const [submitting, setSubmitting] = useState(false);
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    window.location.href = mailtoWith(
-      `${c.subject} — ${form.name}`,
-      `${c.name}: ${form.name}\n${c.email}: ${form.email}\n${c.phone}: ${form.phone}\n\n${form.message}`,
-    );
-    toast({ title: c.sent });
+    if (submitting) return;
+    setSubmitting(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form, website, lang }),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      toast({ title: c.sent });
+      setForm({ name: "", email: "", phone: "", message: "" });
+    } catch {
+      toast({ title: c.error, variant: "destructive" });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -109,6 +126,16 @@ const Contact = ({ headingAs: Heading = "h2" }: ContactProps) => {
         </div>
 
         <form onSubmit={onSubmit} className="md:col-span-7 rounded-3xl bg-cream-soft p-6 md:p-10 space-y-5">
+          <input
+            type="text"
+            name="website"
+            value={website}
+            onChange={(e) => setWebsite(e.target.value)}
+            className="hidden"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+          />
           <div className="grid sm:grid-cols-2 gap-5">
             <label className="block">
               <span className="text-xs uppercase tracking-widest text-muted-foreground">{c.name}</span>
@@ -147,8 +174,8 @@ const Contact = ({ headingAs: Heading = "h2" }: ContactProps) => {
               className="mt-2 w-full rounded-3xl bg-background border border-border px-5 py-3 text-sm outline-none focus:border-primary resize-none"
             />
           </label>
-          <button type="submit" className="btn-primary">
-            {c.submit}
+          <button type="submit" disabled={submitting} className="btn-primary disabled:opacity-60 disabled:pointer-events-none">
+            {submitting ? c.sending : c.submit}
           </button>
         </form>
       </div>

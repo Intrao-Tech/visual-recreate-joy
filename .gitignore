@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Local Worker secrets (Telegram bot token etc.) — keep .dev.vars.example only
+.dev.vars
+.wrangler
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

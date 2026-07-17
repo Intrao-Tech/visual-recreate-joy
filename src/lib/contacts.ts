@@ -12,7 +12,3 @@ export const CONTACTS = {
 
 export const MAILTO = `mailto:${CONTACTS.email}`;
 export const TEL = `tel:${CONTACTS.phone}`;
-
-/** Builds a prefilled mailto: link for the contact form. */
-export const mailtoWith = (subject: string, body: string) =>
-  `${MAILTO}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;

@@ -1,9 +1,11 @@
 {
-  // Static-assets-only Worker: no `main`, so no Worker script is ever invoked.
-  // Cloudflare bills only Worker invocations — "requests to static assets are
-  // free and unlimited" — so this site costs nothing to serve at any traffic.
+  // Static assets + a minimal Worker script. Requests that match a static
+  // asset are still served asset-first and stay free; the Worker (src/worker.ts)
+  // is invoked only for the rest — the contact-form API (/api/contact →
+  // Telegram) and not-found URLs, which it hands back to the asset layer.
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "visual-recreate-joy",
+  "main": "src/worker.ts",
   "compatibility_date": "2026-07-15",
 
   // Serve the site on the production apex. `custom_domain: true` makes
@@ -15,6 +17,13 @@
 
   "assets": {
     "directory": "./dist/",
+
+    // Lets src/worker.ts hand non-API requests back to the asset layer.
+    "binding": "ASSETS",
+
+    // /api/* must always reach the Worker, even if a same-named static file
+    // ever appeared in dist/. Everything else stays asset-first (free).
+    "run_worker_first": ["/api/*"],
 
     // Serves the nearest 404.html with a real 404 status instead of falling
     // back to index.html. This is the setting that fixes the audit's point 4:
