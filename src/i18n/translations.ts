@@ -66,6 +66,8 @@ export type Dict = {
     crafted: string;
   };
   notFound: { title: string; desc: string; button: string };
+  /** Label for the "book a meeting" buttons that open Calendly. */
+  book: string;
   /**
    * Per-page <title> and meta description. Every page shared one title and one
    * description before this existed, so search engines had nothing to tell the
@@ -263,6 +265,7 @@ const en: Dict = {
     desc: "The link may be outdated or mistyped. Let’s get you back on track.",
     button: "Back to home",
   },
+  book: "Book a call",
   seo: {
     titleSuffix: " | ANGL Consulting",
     home: {
@@ -469,6 +472,7 @@ const uk: Dict = {
     desc: "Можливо, посилання застаріло або в адресі є помилка. Повернімося на головну.",
     button: "На головну",
   },
+  book: "Записатися на зустріч",
   seo: {
     titleSuffix: " | ANGL Consulting",
     home: {
@@ -675,6 +679,7 @@ const ru: Dict = {
     desc: "Возможно, ссылка устарела или в адресе есть ошибка. Вернёмся на главную.",
     button: "На главную",
   },
+  book: "Записаться на встречу",
   seo: {
     titleSuffix: " | ANGL Consulting",
     home: {

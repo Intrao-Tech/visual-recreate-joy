@@ -2,6 +2,7 @@ import step1 from "@/assets/step-1.jpg";
 import step2 from "@/assets/step-2.jpg";
 import step3 from "@/assets/step-3.jpg";
 import { useLang } from "@/i18n/LanguageContext";
+import { CONTACTS } from "@/lib/contacts";
 
 const imgs = [step1, step2, step3];
 
@@ -25,6 +26,16 @@ const Steps = () => {
               <span className="text-xs text-muted-foreground tracking-widest">0{i + 1}</span>
               <h3 className="mt-2 text-2xl">{s.title}</h3>
               <p className="mt-3 text-sm text-muted-foreground">{s.copy}</p>
+              {i === 0 && (
+                <a
+                  href={CONTACTS.calendlyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
+                >
+                  {t.book} →
+                </a>
+              )}
             </div>
           </div>
         ))}

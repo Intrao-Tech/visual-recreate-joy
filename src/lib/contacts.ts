@@ -8,6 +8,8 @@ export const CONTACTS = {
   telegramHandle: "@AnGe_La85",
   telegramUrl: "https://t.me/AnGe_La85",
   facebookUrl: "https://www.facebook.com/share/1CrBPhds3p",
+  /** Calendly booking page (30-min slot). Opened in a new tab, no embed script. */
+  calendlyUrl: "https://calendly.com/ag0487713516/30min",
 } as const;
 
 export const MAILTO = `mailto:${CONTACTS.email}`;

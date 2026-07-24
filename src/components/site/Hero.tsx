@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import heroPhoto from "@/assets/city-view-no-people.jpg";
 import { useLang } from "@/i18n/LanguageContext";
+import { Link } from "@/i18n/Link";
 
 const images = [heroPhoto];
 
@@ -44,7 +45,7 @@ const Hero = () => {
             {slides[i].title}
           </h1>
           <div className="mt-10">
-            <a href="#contact" className="btn-light">{t.hero.cta}</a>
+            <Link to="/contact" className="btn-light">{t.hero.cta}</Link>
           </div>
         </div>
       </div>

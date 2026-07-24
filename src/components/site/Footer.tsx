@@ -16,12 +16,14 @@ const Footer = () => {
             {t.footer.titlePre} <span className="italic text-primary">{t.footer.titleItalic}</span>
           </h3>
           <div className="md:text-right">
-            <Link
-              to="/contact"
+            <a
+              href={CONTACTS.calendlyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground hover:bg-background hover:text-ink transition-all"
             >
               {t.footer.button}
-            </Link>
+            </a>
           </div>
         </div>
 
